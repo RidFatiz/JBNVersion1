@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- start: Meta -->
+        
+        <title>JobNetwork</title>
+        <!-- end: Meta -->
+
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <!-- end: Mobile Specific -->
+        <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="M1picHNqVWt5NAEvHFJnAH1tLic6XTtfVT02MxAGOgoBOzI1LAI.Lg=="/>
+<link href="css/jquery-ui.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link  rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css"/>
+<link  rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.min.css"/>
+
+<link  rel="stylesheet" type="text/css" href="css/typicons.min.css"/>
+<link  rel="stylesheet" type="text/css" href="css/typicons.css"/>
+<link  rel="stylesheet" type="text/css" href="css/customize.css"/>
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/temp.css" rel="stylesheet">
+<link href="css/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="css/flatelements.css" rel="stylesheet">
+<link href="css/jquery.atwho.css" rel="stylesheet">
+<link href="css/mail.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet"/>
+
+        <!-- start: render additional head (css and js files) -->
+        <link href="css/theme.css" rel="stylesheet">
+        <link href="css/open-sans.css" rel="stylesheet">
+        <!-- end: render additional head -->
+
+
+        <!-- start: Favicon and Touch Icons -->
+        
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="image/1.jpg">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- end: Favicon and Touch Icons -->
+
+    </head>
+<body ng-app="GestionOffre">
+
+
+
+
+<table>
+
+<tr ng-repeat="of in offre.offres track by $index "> 
+<td><a href="#/offre/{{of.id_Offre}}">{{of.poste}}</a></td>
+ </tr>
+</table>
+
+<div class="page-nation">
+<ul class="pagination pagination-large">
+
+ <li class="disabled"><span>«</span></li>
+<li  class="clickable" ng-class="{active:$index==pageCourant}"  ng-repeat="p in pages track by $index"><a ng-click="goTopage($index)">{{$index}}</a>
+
+
+</li>
+
+<li class="disabled"><span>...</span></li><li>
+ <li><a rel="next" href="#">Next</a></li>
+</ul>
+</div> 
+
+ -->
+
+
+
+
+
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="angular/angularjs.min.js"></script>
+<script type="text/javascript"  src="angular/angulars.route.js"></script>
+<script type="text/javascript"  src="js/OffreavecRoute.js"></script>
+
+
+</body>
+</html>

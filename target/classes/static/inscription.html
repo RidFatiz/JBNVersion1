@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- start: Meta -->
+        <title>S'inscrire</title>
+        <!-- end: Meta -->
+
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- end: Mobile Specific -->
+        
+        <meta name="csrf-param" content="_csrf">
+        <meta name="csrf-token" content="aVJ2YTBhckUjPBU.X1lALidlOjZ5VhxxDzUiIlMNHSRbMyYkbwkZAA==">
+        <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link  rel="stylesheet" type="text/css" href="css/style.css"/>
+       		       
+        <!-- start: render additional head (css and js files) -->
+        <link href="css/theme.css" rel="stylesheet">
+        <!-- end: render additional head -->
+   </head>
+  <body ng-app="Inscription"  ng-controller="gererinscription">
+  <div class="container" style="text-align: center;">
+     <h1 id="app-title" class="animated fadeIn">JobNetwork</h1>
+     <br>
+    <div class="panel panel-default bounceIn" id="login-form" style="max-width: 600px; margin: 0 auto 20px; text-align: left;">
+
+        <div class="panel-heading"><strong>S'inscrire</strong><hr></div>
+        <div class="panel-body"> 
+                              
+             <form class="form-horizontal" name="registerForm">
+    
+          <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.Sexe.$invalid, 'has-success': registerForm.Sexe.$valid}">
+            <label class=" col-sm-3 control-label" for="Sexe">Civilité:</label>
+            <div class="col-sm-6">
+              <input id="Sexe" type="radio"  ng-model="user.genre"   value="Monsieur" required name="Sexe" />Monsieur
+              <input id="Sexe" type="radio"  ng-model="user.genre"  value="Madame"  required name="Sexe"/>Madame
+            </div>
+         </div>
+         
+         <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nom.$invalid, 'has-success': registerForm.Nom.$valid}">
+            <label class="col-sm-3 control-label" for="Nom">Nom</label>
+            <div class="col-sm-6">
+                <input id="Nom" type="text" class="form-control" required name="Nom" ng-model="user.nom" />
+            </div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Prenom.$invalid, 'has-success': registerForm.Prenom.$valid}">
+            <label class="col-sm-3 control-label" for="Prenom">Prénom</label>
+            <div class="col-sm-6">
+                <input id="Prenom" type="text" class="form-control" required name="Prenom" ng-model="user.prenom" />
+            </div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+            <label class="col-sm-3 control-label" for="Username">Login</label>
+            <div class="col-sm-6">
+                <input id="Login" type="text" class="form-control" required name="Login" ng-model="user.username"                
+                 data-toggle="popover" data-trigger="hover" data-placement="right" data-content="My popover content." title="Popover title"/>
+            </div>
+            <div>{{errors.ername}}</div>
+        </div>
+        
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Email.$invalid, 'has-success': registerForm.Email.$valid}">
+            <label class="col-sm-3 control-label" for="Email">Email</label>
+            <div class="col-sm-6">
+                <input id="Email" type="email" class="form-control" required name="Email" ng-model="user.email" />
+            </div>
+             <div ng-if="exception.message">
+                <span class="error">{{ex}} </span>
+                 </div>
+        </div>
+       
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Password.$invalid, 'has-success': registerForm.Password.$valid}">
+            <label class="col-sm-3 control-label" for="Password">Password</label>
+            <div class="col-sm-6">
+                <input id="Password" type="password" class="form-control" required  name="password" ng-model="user.password" />
+             
+            <span class="text-danger col-sm-offset-3" ng-show="registerForm.Password.$error.minlength">
+                Password too short
+            </span></div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.ConfirmPassword.$invalid, 'has-success': registerForm.ConfirmPassword.$valid}">
+            <label class="col-sm-3 control-label" for="ConfirmPassword">Confirm Password</label>
+            <div class="col-sm-6">
+                <input id="ConfirmPassword" type="password" class="form-control" required equals-to="registerForm.Password" name="ConfirmPassword" ng-model="ConfirmPassword" />
+            
+                <span class="text-danger col-sm-offset-3" ng-show="!registerForm.ConfirmPassword.$error.required && registerForm.ConfirmPassword.$error.equalsTo">
+                  Passwords are differents
+                </span>
+             </div>
+        </div> 
+        
+        
+        <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.TypeUser.$invalid, 'has-success': registerForm.TypeUser.$valid}">
+            <label class=" col-sm-3 control-label" for="TypeUser">Type Membre:</label>
+            <div class="col-sm-6">
+              <input id="TypeUser" type="radio"  ng-model="user.typeUser"   value="Candidat" required name="TypeUser" />Candidat
+              <input id="TypeUser" type="radio"  ng-model="user.typeUser"  value="Recruteur"  required name="TypeUser"/>Recruteur
+            </div>
+            
+         </div>
+        
+          <div class="form-group"  >
+            <div  ng-if="user.typeUser=='Candidat'">
+                <input type="hidden" ng-model="user.role='Candidat'" >
+            </div>
+            <div  ng-if="user.typeUser=='Recruteur'">
+                <input type="hidden" ng-model="user.role='Recruteur'" >
+            </div>
+        </div>  
+         
+         
+         
+        <div class="form-group"  >
+           
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-info"  ng-disabled="registerForm.$invalid" ng-click="inscritUser()" >
+                Inscription</button>
+                <input type="reset" class="btn btn-default">
+            </div>
+        </div>
+    </form>    <div ng-if="exception.message">
+         <hr>
+         <span class="error">{{exception.message}}</span>
+     </div>
+    </div>
+    <div class="panel-footer newCompte">        
+			    <div class="btn-group">
+			       <a href="Accueil.html" id="icon-notifications" >
+			          <i class="glyphicon glyphicon-home"></i>
+			             Retourner a l'acceuil
+		           </a></div>  
+   </div>
+ </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+<script type="text/javascript" src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/inscrit.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html  
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+		xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout">
+
+   <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- start: Meta -->
+        <title>Login</title>
+        <!-- end: Meta -->
+
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}"/>
+	       
+        <!-- start: render additional head (css and js files) -->
+        <link rel="stylesheet" type="text/css" href="../static/css/theme.css" th:href="@{css/theme.css}"/>
+        
+        <!-- end: render additional head -->
+   </head>
+   <body class="login-container">
+<div class="container" style="text-align: center;">
+     <h1 id="app-title" class="animated fadeIn">JobNetwork</h1>
+     <br/>
+    <div class="panel panel-default bounceIn" id="login-form" style="max-width: 400px; margin: 0 auto 20px; text-align: left;">
+
+        <div class="panel-heading"><strong>Se connecter</strong><hr/></div>
+        <div class="panel-body"> 
+		          <div th:if="${param.error}">
+		           <div class="alert alert-danger"> 
+		           <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+		         
+		         Invalid username or password.</div>
+		       </div>
+		       <div th:if="${param.logout}">
+		         <div class="alert alert-success">
+		           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+		         
+		         vous etes déconnecté.</div>
+		       </div>                     
+             <section class="main">
+				<form class="form-1" th:action="@{/login}" method="post">
+				   <input type="hidden" name="_csrf" value="aVJ2YTBhckUjPBU.X1lALidlOjZ5VhxxDzUiIlMNHSRbMyYkbwkZAA=="/>
+				      <div th:class="${param.error}? 'form-group has-error' :'form-group'">
+					
+					<p class="field">					    
+						<input name="username" placeholder="Username or email" type="text" />
+						<i class=" glyphicon glyphicon-user" aria-hidden="true"></i>
+					</p>
+						<p class="field">
+							<input name="password" placeholder="Password" type="password"/>
+							<i class="glyphicon glyphicon-lock " aria-hidden="true"></i>
+					</p>
+					
+					<p>Se souvenir de moi: <input type="checkbox" name="remember-me" value="true" /></p>
+					
+					<p class="submit">
+						<button type="submit" name="submit">
+						 <i class=" glyphicon glyphicon-arrow-right" aria-hidden="true" ></i>
+						</button>
+					</p>
+					</div>	
+				</form>
+				</section> 
+				<hr/>
+				 <p style=" text-align: center;"> 
+				        <a href="/forgetPassword.html" class="" >Mot de passe oublié?</a>       
+				 </p>
+        </div>
+        <div class="panel-footer newCompte"><a href="/inscrire.html"  >Créer un compte</a></div>
+    </div>
+    
+ </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+<div class="panel panel-default">
+      <div class="panel-heading">
+             Notifications sur  <strong>L'espace</strong></div>
+      <div class="panel-body">
+        <form id="h117730w0" action="/user/account/emailing" method="post">
+             <input type="hidden" name="_csrf" value="S1ZaN1ZkTGsFBBlNHTsDXRwTa2EYNHxdOjU1Aj9JFltyFA9/ZykHXQ==">
+             <strong>Notifications</strong><br>
+
+             <div class="form-group field-accountemailing-enable_html5_desktop_notifications">
+                <input type="hidden" name="AccountEmailing[enable_html5_desktop_notifications]" value="0"><label for="accountemailing-enable_html5_desktop_notifications"><input type="checkbox" id="accountemailing-enable_html5_desktop_notifications" name="AccountEmailing[enable_html5_desktop_notifications]" value="1" class="regular-checkbox"> Recevoir les notifications sur votre bureau lorsque vous êtes en ligne.
+                <div class="regular-checkbox-box"></div></label>
+             </div>
+             <hr>
+       </form>
+     </div>
+
+     <div class="panel-heading">
+    Notifications par <strong>e-mail</strong></div>
+     <div class="panel-body">
+         <strong>Notifications</strong><br>
+          un e-mail quand un utilisateur fait une activité. <br>
+       <br>
+
+    <div class="form-group field-accountemailing-receive_email_notifications">
+			<label class="control-label" for="accountemailing-receive_email_notifications">Envoyer les notifications ?</label>
+			<select id="accountemailing-receive_email_notifications" class="form-control" name="AccountEmailing[receive_email_notifications]">
+			<option value="0">jamais</option>
+			<option value="2" selected="">quand je suis déconnecté</option>
+			<option value="3">toujours</option>
+			</select>
+
+         </div>
+         <hr>
+
+
+    <strong>Activités</strong><br>
+    Recevoir un e-mail pour chaque activité des utilisateurs que vous suivez.
+    <div class="form-group field-accountemailing-receive_email_activities">
+		<label class="control-label" for="accountemailing-receive_email_activities">Envoyer les activités ?</label>
+		<select id="accountemailing-receive_email_activities" class="form-control" name="AccountEmailing[receive_email_activities]">
+		<option value="0">jamais</option>
+		<option value="1" selected="">résumé quotidien</option>
+		<option value="2">quand je suis déconnecté</option>
+		<option value="3">toujours</option>
+		</select>
+    </div>
+    <hr>
+
+    <button type="submit" class="btn btn-info">Enregistrer</button>
+    </div>
+  </div>

@@ -1,0 +1,506 @@
+
+       
+
+<!-- <div ng-init="loadPublication()">
+<div ng-repeat="p in publication">
+{{p.description}}
+<input type="submit" ng-click="deletePublication(p.id)"> 
+
+</div>
+</div> -->
+
+
+ 
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+        
+        <!-- start: render additional head (css and js files) -->
+        <link href="css/theme.css" rel="stylesheet">
+        <!-- end: render additional head -->
+
+
+
+    </head>
+
+
+
+
+
+
+
+<div class="container" ng-controller="ProfilAmi">
+<div ng-if="users.role=='Candidat'">
+   <div class="row">
+<div class="col-md-12">         
+  <div class="panel panel-default panel-profile">
+    <div class="panel-profile-header">	
+        <div class="image-upload-container" style="width: 100%; height: 100%; overflow:hidden;">
+            <img class="img-profile-header-background" id="space-banner-image" src="image/default_banner.jpg" style="width: 100%;" width="100%">
+          
+            <div class="img-profile-data">
+                 <h1 class="space"> {{users.nom}} {{users.prenom}}</h1>
+                
+                <h2 class="space">{{users.titreCv}} </h2>
+                
+            </div>
+        </div>
+   <div class="image-upload-container profile-user-photo-container" style="width: 140px; height: 140px;">           
+         
+                  <div  ng-if="users.photo.length==null">
+                     <img src="image/default_user.jpg"/>                      
+                  </div> 
+                  <div ng-show="users.photo!=null">
+                     <img  ng-src="{{users.photo}}" />                      
+                  </div>
+                
+          
+              
+              
+             
+         
+           
+           
+     </div> 
+     
+</div>
+    <div class="panel-body">
+        <div class="panel-profile-controls">
+           
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    
+                    
+                    <div class="statistics pull-left">
+
+                        <div class="pull-left entry">
+                            <div  ng-if="users.username!=home.user.username">
+                <div ng-if="myVar=='Amis'"  >
+              
+                  <input type="submit"  value="{{myVar}}" class="btn btn-info" />
+                </div>
+                <div ng-if="myVar=='déja envoyé'">
+                  <input type="submit"  value="{{myVar}}" class="btn btn-info" />
+                </div>
+                <div ng-if="myVar=='Inviter'">
+                  <input type="submit" ng-click="envoyerInvitation(users.username)" value="{{myVar}}" class="btn btn-info" ng-controller="gestioninvitation"/>
+                </div>
+                </div> 
+                        </div>
+
+                        
+                    </div>
+                   
+                    <div class="controls controls-header pull-right">
+                      
+                 
+   
+               
+    <div class="btn-group dropdown-navigation open">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-cog"></i>            
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+                <li><a class="" href="/cand.html"><i class="fa fa-cogs"></i> <span>Settings</span></a> </li>
+                
+                
+                
+                <li class="visible-md visible-lg dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><i class="fa fa-group"></i> <span>Groupes</span>
+             <b class="caret"></b>
+            
+         </a>
+     </li>
+     
+               
+                <li><a class="" href="#"><i class="fa fa-rocket"></i> <span>Modules</span></a></li>
+                <li><a class="" href="#"><i class="fa fa-archive"></i> <span>Prenium</span></a></li>
+                
+                <li><a class="tt" href="#" title="" data-method="POST" data-toggle="tooltip" data-placement="left" data-original-title="option">
+                   <i class="fa fa-eye-slash"></i> <span>Hide posts on dashboard</span></a> 
+                </li>    
+        </ul>
+	    </div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+</div> 
+ <div class="row">
+<div class="col-md-2 layout-nav-container">
+            
+<!-- start: list-group navi for large devices -->
+<div class="panel panel-default">
+    <div class="panel-heading">Menu <strong>Espace</strong></div>
+        <div class="list-group">
+             <a class=" active list-group-item" href="/404.html"><i class="fa fa-calendar"></i><span>Evenement</span></a>                                           
+             <a class=" list-group-item" href="#groupe"><i class="fa fa-users"></i><span>Groupes</span></a> 
+             <div ng-controller="gestiongroupe">
+            
+            <div ng-repeat="groupe in groupe1">
+                
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+                 </div> 
+            
+            
+            
+                 <div ng-repeat="groupe in groupemembre">
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+                 </div> 
+               
+               </div>
+               <button type="button" class="btn btn-primary btn-lg" >
+  Launch demo modal
+              </button>
+
+<!-- Modal -->
+
+               
+             <a class=" list-group-item" href="#groupe" data-toggle="modal" data-target="#myModal"><span>Greer un groupe</span></a>                                                   
+             <a class=" list-group-item" href="#Voirformation"><i class="fa fa-star"></i><span>Formations</span></a>                                            
+             <a class=" list-group-item" href="/404.html"><i class="fa fa-book"></i><span>Articles</span></a>                    
+        </div>             
+     </div>
+<!-- end: list-group navi for large devices -->
+    <br>
+  </div>
+<div class="col-md-7">             
+
+
+<div id="wallStream">
+     
+ <h1>Parcours </h1>
+                  <div id="body">
+		
+        <blockquote>
+            <span style="font-style:italic;">Title</span>
+        </blockquote>
+<div> 
+
+        <blockquote >Formations</blockquote>
+
+<ul>
+
+<li ng-repeat="c in users.diplome"  >
+<h5  class="dateColor"> {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span style="margin-left:20px">{{ c.niveauEtude}}{{c.titreDiplome }} à {{c.etablissement}}</span>
+
+{{c.descriptiondiplome}}
+
+</li>
+
+</ul>
+
+
+</div>
+
+<div>
+<blockquote>Expériences professionnelles</blockquote>
+
+
+<ul >
+<li ng-repeat="c in users.experience"  >
+<h5 class="dateColor" > {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span >{{ c.poste}} de {{c.type}} à {{c.lieu}}</span><br>
+
+<span>{{c.description_experience}}</span>
+</li>
+
+</ul>
+
+</div>
+<div>
+<blockquote>Langues</blockquote>
+<ul>
+
+<li ng-repeat="c in users.langue"  >
+
+ <span style="font-weight: 600;">{{c.langue }}</span> {{c.niveau}}
+
+
+</li>
+</ul>
+</div>
+<div>
+<blockquote>Compétences </blockquote>
+<ul>
+<li ng-repeat="c in users.competence"  >
+<span style="font-weight: 600;">{{c.typeCompetence}}</span>
+ {{c.description_Competence}}
+
+
+
+</li>
+
+</ul> 
+
+</div>
+<div>
+<blockquote>Centres d’intérêt</blockquote>
+<ul>
+		<li ng-repeat="c in users.loisir"  >
+		<span style="font-weight: 600;">{{c.typeLoisir}}</span>
+		 {{c.description_Loisir}} 
+		</li>
+</ul>
+
+</div>
+</div>   
+
+<h1>Recommendation</h1> 
+
+<div  >
+
+<div ng-repeat="r in recommendation">
+{{r.contenu}}
+{{r.destinataire.username}}
+</div>
+
+<div ng-if="myVar=='Amis'">
+<div ng-controller="gestioninvitation" >
+<textarea  ng-model="recommendations.contenu"  > </textarea>
+
+<button  type="submit" ng-click="envoyerRecommendation(users.username)"  class="btn btn-info"  >Envoyer</button>
+</div>
+</div>
+</div>   
+
+
+     
+     
+</div>
+
+		<!-- show "Load More" button on mobile devices -->
+		<div class="col-md-12 text-center visible-xs visible-sm">
+		    <button id="btn-load-more" class="btn btn-primary btn-lg ">Load more</button>
+		    <br><br>
+		</div>
+		
+		
+</div>
+
+
+</div>
+
+ <!-- end: show content -->
+ 
+</div> 
+
+<div ng-if="users.role=='Recruteur'">
+   <div class="row">
+<div class="col-md-12">         
+  <div class="panel panel-default panel-profile">
+    <div class="panel-profile-header">	
+        <div class="image-upload-container" style="width: 100%; height: 100%; overflow:hidden;">
+            <img class="img-profile-header-background" id="space-banner-image" src="image/default_banner.jpg" style="width: 100%;" width="100%">
+          
+            <div class="img-profile-data">
+                 <h1 class="space"> {{users.nom}} {{users.prenom}}</h1>
+                 <h2 class="space">{{users.nom_entreprise}} </h2>
+                
+            </div>
+        </div>
+   <div class="image-upload-container profile-user-photo-container" style="width: 140px; height: 140px;">           
+         
+                  <div  ng-if="users.photoEntrprise.length==null">
+                     <img src="image/default_user.jpg"/>                      
+                  </div> 
+                  <div ng-show="users.photoEntrprise!=null">
+                     <img  ng-src="{{users.photoEntrprise}}" />                      
+                  </div>
+           
+     </div> 
+     
+</div>
+    <div class="panel-body">
+        <div class="panel-profile-controls">
+           
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    
+                    
+                    <div class="statistics pull-left">
+
+                        <div class="pull-left entry">
+                            <div  ng-if="users.username!=home.user.username">
+                <div ng-if="myVar=='Amis'"  >
+              
+                  <input type="submit"  value="{{myVar}}" class="btn btn-info" />
+                </div>
+                <div ng-if="myVar=='déja envoyé'">
+                  <input type="submit"  value="{{myVar}}" class="btn btn-info" />
+                </div>
+                <div ng-if="myVar=='Inviter'">
+                  <input type="submit" ng-click="envoyerInvitation(users.username)" value="{{myVar}}" class="btn btn-info" ng-controller="gestioninvitation"/>
+                </div>
+                </div> 
+                        </div>
+
+                        
+                    </div>
+                   
+                    <div class="controls controls-header pull-right">
+                      
+                 
+   
+               
+    <div class="btn-group dropdown-navigation open">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-cog"></i>            
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+                <li><a class="" href="/cand.html"><i class="fa fa-cogs"></i> <span>Settings</span></a> </li>
+                
+                
+                
+                <li class="visible-md visible-lg dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><i class="fa fa-group"></i> <span>Groupes</span>
+             <b class="caret"></b>
+            
+         </a>
+     </li>
+     
+               
+                <li><a class="" href="#"><i class="fa fa-rocket"></i> <span>Modules</span></a></li>
+                <li><a class="" href="#"><i class="fa fa-archive"></i> <span>Prenium</span></a></li>
+                
+                <li><a class="tt" href="#" title="" data-method="POST" data-toggle="tooltip" data-placement="left" data-original-title="option">
+                   <i class="fa fa-eye-slash"></i> <span>Hide posts on dashboard</span></a> 
+                </li>    
+        </ul>
+	    </div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+</div> 
+ <div class="row">
+<div class="col-md-2 layout-nav-container">
+            
+<!-- start: list-group navi for large devices -->
+<div class="panel panel-default">
+    <div class="panel-heading">Menu <strong>Espace</strong></div>
+        <div class="list-group">
+             <a class=" active list-group-item" href="/404.html"><i class="fa fa-calendar"></i><span>Evenement</span></a>                                           
+             <a class=" list-group-item" href="#groupe"><i class="fa fa-users"></i><span>Groupes</span></a> 
+             <div ng-controller="gestiongroupe">
+            
+            <div ng-repeat="groupe in groupe1">
+                
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+                 </div> 
+            
+            
+            
+                 <div ng-repeat="groupe in groupemembre">
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+                 </div> 
+               
+               </div>
+               
+             <a class=" list-group-item" href="#groupe"><span>Greer un groupe</span></a>                                                   
+             <a class=" list-group-item" href="#Voirformation"><i class="fa fa-star"></i><span>Formations</span></a>                                            
+             <a class=" list-group-item" href="/404.html"><i class="fa fa-book"></i><span>Articles</span></a>                    
+        </div>             
+     </div>
+<!-- end: list-group navi for large devices -->
+    <br>
+  </div>
+<div class="col-md-7">             
+
+
+<div id="wallStream">
+  
+  <h1>Parcours</h1>
+                  
+                  
+                  
+                  <div id="body">
+        <div> 
+		        <blockquote >Nom d'Entreprise</blockquote>
+		        <span style="margin-left:20px">{{users.nom_entreprise}}</span>
+        </div>
+
+        <div>
+                <blockquote>Site d'entreprise</blockquote>
+		        <span style="margin-left:20px">{{users.site_entreprise}}</span>
+       </div>
+		<div>
+				<blockquote>Secteur</blockquote>
+		        <span style="margin-left:20px">{{users.secteur}}</span>
+        </div>
+        <div>
+                <blockquote>Adresse </blockquote>
+		        <span style="margin-left:20px">{{users.addresse}}</span>
+        </div>
+		<div>
+		         <blockquote>Telephone/Fax</blockquote>
+				 <span style="margin-left:20px">{{users.Numero_telephone}}</span>		
+		</div>
+</div>
+</div>
+
+		<!-- show "Load More" button on mobile devices -->
+		<div class="col-md-12 text-center visible-xs visible-sm">
+		    <button id="btn-load-more" class="btn btn-primary btn-lg ">Load more</button>
+		    <br><br>
+		</div>
+		
+		
+</div>
+
+
+</div>
+
+ <!-- end: show content -->
+ 
+</div> 
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/jquery.js"></script>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/angular-route.js"></script>   
+<script type="text/javascript"  src="js/app.js"></script>

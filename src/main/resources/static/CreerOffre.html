@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta charset="utf-8" />
+
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+<link  rel="stylesheet" type="text/css"  href="css/style.css"/>
+
+<title>Insert title here</title>
+</head>
+<body ng-app="JobNetwork"  ng-controller="gestiondeoffre" >
+
+<div class="panel-body">
+
+
+<form>
+
+
+<div ng-controller="home as home" >                 
+<div class="form-group">
+<label>Entrprise:</label>
+<input type="text" ng-model="home.user.nom_entreprise" class="form-control" />
+</div>
+</div>
+
+<div ng-controller="home as home" >                 
+
+<input type="text" ng-model="offre.recruteur.username=home.user.username" class="form-control" />
+ <input type="text" ng-model="offre.recruteur.typeUser=home.user.typeUser " />
+</div>
+</div>
+
+
+<div class="form-group">
+
+
+<label>Poste:</label>
+<input type="text" ng-model="offre.poste" class="form-control" />
+</div>
+
+<div class="form-group">
+<label>Secteur:</label>
+ <select    ng-options="x for x in secteur" ng-model="home.user.secteur" class="form-control">
+</select>
+</div>
+
+<div class="form-group">
+<label>Description du poste:</label>
+<textarea ng-model="offre.description" class="form-control" ></textarea>
+</div>
+
+<div class="form-group">
+<label>Compétences et domaines d’expertise souhaités:</label>
+<textarea  ng-model="offre.ProfilSouhaite"  class="form-control" ></textarea>
+</div>
+<div class="form-group">
+<label>Type d’emploi:</label>
+<select    ng-options="x for x in typecontrant" ng-model="offre.typecontrant" class="form-control">
+</select>
+</div>
+
+<div class="form-group">
+
+<div ng-if="offre.type=='Stage'"  >
+<label>Rémuneration:</label><input type="text" ng-model="offre.remuneration"  class="form-control"/>
+</div>
+<label>Type Offre:</label>
+<input type="radio" ng-model="offre.type" value="Stage"  />Stage
+
+<input type="radio" ng-model="offre.type" value="Emploi"  />Emploi
+
+
+</div>
+<div class="form-group">
+<label>lieu  :</label>
+<input type="text" ng-model="offre.lieu"  class="form-control"/>
+</div>
+<div class="form-group">
+<label>Ville:</label>
+<textarea ng-model="offre.ville"  class="form-control"></textarea>
+</div>
+
+<div class="form-group" ng-if="offre.type=='Stage'" >
+<label>date Debut:</label>
+<input type="date" ng-model="offre.dateDebut" class="form-control" />
+</div>
+
+<div class="form-group" ng-if="offre.type=='Stage'" >
+<label>date Fin:</label>
+<input type="date" ng-model="offre.dateFin" class="form-control" />
+</div>
+
+
+
+
+<button ng-click="saveOffre()"  class="btn btn-info">Save</button>
+
+</form>
+
+</div>
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="js/app.js"></script>
+
+
+
+</body>
+</html>
+
+

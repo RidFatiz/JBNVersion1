@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link  rel="stylesheet" type="text/css"  href="css/style.css"/>
+</head>
+<body ng-app="Inscription" >
+
+
+<div class="tab-content">
+    
+    
+    
+    <div role="tabpanel" class="tab-pane active" id="perso" ng-controller="home as home">
+      <div class="panel-body">   
+          <div class="form-group">
+            <div  ng-if="home.user.photo.length==null">
+              <span> <img src="image/default_user.jpg"  class="img" /></span>
+            </div> 
+             <div ng-show="home.user.photo!=null">
+              <span > <img ng-src="{{home.user.photo}}"  class="img" /></span>
+            </div>
+             <form method="POST" action="/savephoto" enctype="multipart/form-data"> 
+              <div class="image-upload">
+              <label for="file-input">
+                 <span class="glyphicon glyphicon-upload"></span>
+                 <span class="glyphicon glyphicon-upload"></span>
+             </label>
+             <input type="file"  name="fileUpload"    id="file-input"   />
+                 </div>
+                  <input  type="submit" value="publier" />
+             </form>
+             <input  type="submit" ng-click="deletePhoto(home.user.username)" value="delete" ng-controller="gererinscription" />
+            
+             <form method="POST" action="/savecv" enctype="multipart/form-data"> 
+              <div class="image-upload">
+              <label for="file-input">
+                 <span class="glyphicon glyphicon-upload"></span>
+                 <span class="glyphicon glyphicon-upload"></span>
+             </label>
+             <input type="file"  name="fileUpload"    id="file-input"   />
+                 </div>
+                  <input  type="submit" value="publier" />
+             </form>
+            
+  
+            
+            
+             <span > <a href="{{home.user.lienCv}}"  />{{home.user.lienCv}}</a></span>
+            </div>
+               
+           
+             
+      <form class="form-horizontal" name="registerForm">            
+           <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.status.$invalid, 'has-success': registerForm.status.$valid}">           
+              <label class=" col-sm-3 control-label" for="status">Status</label>
+              <div class="col-sm-6">
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Celibataire" >Célibataire
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Marie" >Marié
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Veuve" >Veuve
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Divorce" >Divorcé
+            </div>
+          </div>
+          <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.Sexe.$invalid, 'has-success': registerForm.Sexe.$valid}">
+            <label class=" col-sm-3 control-label" for="Sexe">Civilité:</label>
+            <div class="col-sm-6">
+              <input id="Sexe" type="radio"  ng-model="home.user.genre"   value="Monsieur" required name="Sexe" />Monsieur
+              <input id="Sexe" type="radio"  ng-model="home.user.genre"  value="Madame"  required name="Sexe"/>Madame
+            </div>
+         </div>
+         
+         
+         
+          <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nom.$invalid, 'has-success': registerForm.Nom.$valid}">
+            <label class="col-sm-3 control-label" for="titreCv">Métier Actuelle</label>
+            <div class="col-sm-6">
+                <input id="Nom" type="text" class="form-control" required name="titreCv" ng-model="home.user.titreCv" />
+            </div>
+        </div>
+         <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nom.$invalid, 'has-success': registerForm.Nom.$valid}">
+            <label class="col-sm-3 control-label" for="Nom">Nom</label>
+            <div class="col-sm-6">
+                <input id="Nom" type="text" class="form-control" required name="Nom" ng-model="home.user.nom" />
+            </div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Prenom.$invalid, 'has-success': registerForm.Prenom.$valid}">
+            <label class="col-sm-3 control-label" for="Prenom">Prénom</label>
+            <div class="col-sm-6">
+                <input id="Prenom" type="text" class="form-control" required name="Prenom" ng-model="home.user.prenom" />
+            </div>
+        </div>
+        
+       
+        <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.DateNaissance.$invalid, 'has-success': registerForm.DateNaissance.$valid}">
+            <label class=" col-sm-3 control-label" for="DateNaissance">Date de naissance</label>
+            <div class="col-sm-6">
+              <input id="DateNaissance" type="date" class="form-control" ng-model="home.user.dateNaissance" required name="date_naissance" />  
+            </div>
+       </div> 
+       
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Tel.$invalid, 'has-success': registerForm.Tel.$valid}">
+            <label class="col-sm-3 control-label" for="Username">tel</label>
+            <div class="col-sm-6">
+                <input id="Tel" type="text" class="form-control" required name="Tel" ng-model="home.user.tel" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Pays.$invalid, 'has-success': registerForm.Pays.$valid}">
+            <label class="col-sm-3 control-label" for="Pays">Pays</label>
+            <div class="col-sm-6">
+                <input id="Pays" type="text" class="form-control" required name="Pays" ng-model="home.user.pays" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Ville.$invalid, 'has-success': registerForm.Ville.$valid}">
+            <label class="col-sm-3 control-label" for="Ville">Ville</label>
+            <div class="col-sm-6">
+                <input id="Ville" type="text" class="form-control" required name="Ville" ng-model="home.user.ville" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Adresse.$invalid, 'has-success': registerForm.Adresse.$valid}">
+            <label class="col-sm-3 control-label" for="Adresse">Adresse</label>
+            <div class="col-sm-6">
+                <input id="Adresse" type="text" class="form-control" required name="Adresse" ng-model="home.user.adresse" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.code_postale.$invalid, 'has-success': registerForm.code_postale.$valid}">
+            <label class="col-sm-3 control-label" for="code_postale">Code Postal</label>
+            <div class="col-sm-6">
+                <input id="code_postale" type="text" class="form-control" required name="code_postale" ng-model="home.user.codePostale" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nationalite.$invalid, 'has-success': registerForm.Nationalite.$valid}">
+            <label class="col-sm-3 control-label" for="Nationalite">Nationalité</label>
+            <div class="col-sm-6">
+                <input id="Nationalite" type="text" class="form-control" required name="Nationalite" ng-model="home.user.nationalite" />
+            </div>
+        </div>
+      
+      
+     
+     
+      
+         <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9 right"> 
+                <input type="submit" class="btn btn-info"  value="suivant" ng-click="saveCandidat()" ng-controller="gererinscription"/>
+                <input type="reset" class="btn btn-default"/>
+            </div>
+        </div>
+    </form> 
+    </div>
+   
+       
+ 
+    </div>
+  
+      </div>  
+      
+      <div class="progress">
+       <div class=" progress-bar progress-bar-success" role="progressbar " style="width:65%"></div>
+       </div>
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/inscrit.js"></script>
+
+
+
+
+
+</body>
+</html>

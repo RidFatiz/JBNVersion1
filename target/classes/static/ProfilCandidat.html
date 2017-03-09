@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>  
+      $route redirectTo Will Pass-Through Current Route Params In AngularJS
+</title>
+
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+
+</head>
+<body ng-app="gestionProfil">
+
+
+<div id="etapes_completer_profil" class="container">
+			<div class="barProgress">
+			  <div></div>
+			</div>
+			<div class="C_STEPS_PROGRESS_BAR"><div></div></div>
+			<div class="C_LINKS" icons="1">
+</div></div>	     
+				
+
+<div class="container">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills nav-justified" role="tablist" id="mytab">
+    
+    <li role="presentation" class="form-horizontal text-center">
+       <a class="C_STEP1 C_NOFOCUS" href="#formations" aria-controls="formations" role="tab" data-toggle="tab">
+				    <span class="fa-stack fa-2x form-group">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-graduation-cap fa-stack-1x "></i>
+                      </span>
+				     <span class="form-group" > Formations </span>
+       </a>
+    </li>
+    <li role="presentation" class="form-horizontal text-center">
+       <a class="C_STEP1 C_NOFOCUS" href="#experiences" aria-controls="experiences" role="tab" data-toggle="tab">
+				    <span class="fa-stack fa-2x form-group">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-tasks fa-stack-1x "></i>
+                    </span>
+				   <span class="form-group" >  Expériences </span>
+       </a>
+    </li>
+    <li role="presentation" class="form-horizontal text-center">
+       <a class="C_STEP1 C_NOFOCUS" href="#competences" aria-controls="competences" role="tab" data-toggle="tab">
+				    <span class="fa-stack fa-2x form-group">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-bars fa-stack-1x "></i>
+                    </span>
+				   <span class="form-group" > Compétences </span>
+       </a>
+    </li>
+    <li role="presentation" class="form-horizontal text-center">
+       <a class="C_STEP1 C_NOFOCUS" href="#langues" aria-controls="langues" role="tab" data-toggle="tab">
+				    <span class="fa-stack fa-2x form-group">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-language fa-stack-1x "></i>
+                      </span>
+				    <span class="form-group" > Langues </span>
+       </a>
+    </li>
+    
+    <li role="presentation" class="form-horizontal text-center">
+       <a class="C_STEP1 C_NOFOCUS" href="#loisirs" aria-controls="loisirs" role="tab" data-toggle="tab">
+				    <span class="fa-stack fa-2x form-group">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-gamepad  fa-stack-1x "></i>
+                     </span>
+				     <span class="form-group" > Loisirs </span>
+        </a>
+    </li>
+  </ul>
+  
+  
+<!-- Tab panes -->
+<div class="tab-content">
+    
+   
+    
+<div role="tabpanel" class="tab-pane" id="formations" ng-controller="profilCandidat">
+              <div class="panel-body">
+                  <form class="form-horizontal" name="registerForm">
+                   
+                   <div ng-repeat="item in items track by $index ">
+                   <div>
+                    <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+                    <span aria-hidden="true">&times;</span></button>
+                    
+                    
+                    
+                   </div>
+                   
+                   <div ng-controller="home as home" > 
+      
+                        <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+   
+  
+                     <div class="form-group">
+                         <label class="col-sm-3 control-label" for="NiveauEtude">NiveauEtude:</label>
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="etude"  value="Bac" />Bac
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="etude" value="Bac+1"  />Bac+1
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="etude"  value="Bac+2" />Bac+2
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="etude" value="Bac+4"  />Bac+4
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="etude" value="Bac+5 et plus"  />Bac+5 et plus
+                     </div>
+                     <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+                       <label class="col-sm-3 control-label" for="TitreDiplome">TitreDiplome:</label>
+                       <div class="col-sm-6">
+                       <input type="text" ng-model="item[$index].titreDiplome" class="form-control" required name="TitreDiplome"/>
+                    </div> </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+                       <label class="col-sm-3 control-label" for="Descriptiondiplome">Description diplome:</label>
+                       <div class="col-sm-6">
+                        <textarea   ng-model="item[$index].descriptiondiplome" class="form-control" required name="Descriptiondiplome"></textarea>
+                        </div>
+                   </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+                       <label class="col-sm-3 control-label" for="Etablissement">Etablissement :</label>
+                       <div class="col-sm-6">
+                         <input type="text" ng-model="item[$index].etablissement" class="form-control"  />
+                        </div> 
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+                       <label class="col-sm-3 control-label" for="DateDebut">DateDebut:</label>
+                       <div class="col-sm-6">
+                         <input type="date" ng-model="item[$index].dateDebut" class="form-control" />
+                       </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Login.$invalid, 'has-success': registerForm.Login.$valid}">
+                      <label class="col-sm-3 control-label" for="DateFin">DateFin:</label>
+                      <div class="col-sm-6">
+                          <input type="date" ng-model="item[$index].dateFin" class="form-control" />
+                      </div>
+                    </div>
+                   </div> 
+                  <div>
+                    <a ng-click="addDiplome()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                   </div>
+                       <button ng-click="saveDiplome()" class="btn btn-info">Save</button>
+                       <input type="reset" class="btn btn-default"/>
+             </form>
+            </div>
+           </div>
+    
+    <div role="tabpanel" class="tab-pane" id="experiences" ng-controller="profilCandidat">
+           <div class="panel-body">
+             <form class="form-horizontal" name="registerForm">
+         
+         <div ng-repeat="item in items track by $index ">
+         <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+         </div>
+                <div ng-controller="home as home" > 
+      
+                        <input type="text" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="text" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+           <div class="form-group">
+             <label class="col-sm-3 control-label">Poste</label>
+             <div class="col-sm-6">
+             <input type="text" ng-model="item[$index].poste" class="form-control"/>
+             </div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">type</label>
+              <div class="col-sm-6">
+              
+              
+              <select    ng-options="x for x in names" ng-model="item[$index].type" class="form-control">
+              
+              </select>
+              
+              </div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Description:</label>
+              <div class="col-sm-6">
+              <textarea ng-model="item[$index].description_experience" class="form-control"></textarea>
+              </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">Lieu :</label>
+               <div class="col-sm-6">
+              <input type="text" ng-model="item[$index].lieu" class="form-control"/>
+              </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">DateDebut:</label>
+               <div class="col-sm-6">
+               <input type="date" ng-model="item[$index].dateDebut" class="form-control"/>
+               </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">DateFin:</label>
+               <div class="col-sm-6">
+               <input type="date" ng-model="item[$index].dateFin" class="form-control"/>
+               </div>
+           </div>
+           </div>
+            <div>
+               <a ng-click="addExperience()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+    <button ng-click="saveExperience()" class="btn btn-info">Save</button>
+    <input type="reset" class="btn btn-default"/>
+   </form>
+</div>
+ </div>  
+    <div role="tabpanel" class="tab-pane" id="langues" ng-controller="profilCandidat">
+    
+          <div class="panel-body">
+    <form class="form-horizontal" name="registerForm">
+      <div ng-repeat="item in items track by $index ">
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+                <div ng-controller="home as home" > 
+      
+                        <input type="text" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="text" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+      <div class="form-group">
+         <label class="col-sm-3 control-label">niveau de Langue:</label>
+         <div class="col-sm-6">
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau"  value="Debutant" />Débutant
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau"  value="Courant" />Courrant
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau" value="Intermediaire"  />Intermédiaire
+      </div></div>
+      <div class="form-group">
+           <label class="col-sm-3 control-label">Langue:</label>
+           <div class="col-sm-6">
+           <input type="text" ng-model="item[$index].langue" class="form-control"/>
+           </div>
+      </div>
+      
+     </div>
+     <div>
+               <a ng-click="addLangue()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+    <button ng-click="saveLangue()" class="btn btn-info">Save</button>
+    <input type="reset" class="btn btn-default"/>
+    
+  </form>
+ </div>
+    
+ </div>
+ 
+    <div role="tabpanel" class="tab-pane" id="competences" ng-controller="profilCandidat">
+         <div class="panel-body"  >
+    <form class="form-horizontal" name="registerForm">
+      
+      <div ng-repeat="item in items track by $index " >
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+               <div ng-controller="home as home" > 
+      
+                        <input type="text" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="text" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+         <div class="form-group" >
+             <label class="col-sm-3 control-label" >Type:</label>
+             <div class="col-sm-6">
+             <input type="text"  ng-model="item[$index].typeCompetence" class="form-control" />
+             </div>
+          </div>
+          <div class="form-group" >
+             <label class="col-sm-3 control-label">Compétence:</label>
+             <div class="col-sm-6">
+             <textarea   ng-model="item[$index].description_Competence" class="form-control"></textarea>
+             </div>
+          </div>
+       </div>
+       <div>
+       <div>
+               <a ng-click="addCompetence()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+       <button ng-click="saveCompetence()" class="btn btn-info">Save</button>
+        <input type="reset" class="btn btn-default"/>
+        </div>
+     </form>
+</div>
+</div>
+    
+    <div role="tabpanel" class="tab-pane" id="loisirs" ng-controller="profilCandidat">
+         <div class="panel-body"  >
+    <form class="form-horizontal" name="registerForm">
+      
+      <div ng-repeat="item in items track by $index " >
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+                <div ng-controller="home as home" > 
+      
+                        <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+         <div class="form-group" >
+             <label class="col-sm-3 control-label" >Loisir:</label>
+             <div class="col-sm-6">
+             <input type="text"  ng-model="item[$index].typeLoisir" class="form-control" />
+             </div>
+          </div>
+          <div class="form-group" >
+             <label class="col-sm-3 control-label">Description:</label>
+             <div class="col-sm-6">
+             <textarea   ng-model="item[$index].description" class="form-control"></textarea>
+             </div>
+          </div>
+       </div>
+       
+       <div>
+               <a ng-click="addLoisir()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+           <div>  
+       <button ng-click="saveLoisir()" class="btn btn-info">Save</button>
+        <input type="reset" class="btn btn-default"/>
+        </div>
+     </form>
+</div>
+
+    </div>
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/Profil.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+</body>
+</html>

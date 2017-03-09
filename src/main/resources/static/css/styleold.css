@@ -1,0 +1,259 @@
+@CHARSET "ISO-8859-1";
+
+.spacer{
+	margin-top:30px;
+	
+}
+
+
+.bold {
+    font-weight: 700;
+}
+
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.tag-input-ctn{
+	border:1px solid #ccc;
+	padding:2px 3px;
+	display:inline-block;
+	width:500px;
+	border-radius:3px;
+	box-shadow:inset 0px 1px 1px rgba(0,0,0,0.075)
+	
+	
+}
+
+
+.image-uploade > input
+{
+    display: none;
+}
+.tag-input-ctn input {
+	display:inline-block;
+	float:left;
+	height:18px;
+	padding: 0px;
+	font-size:13px;
+	line-height: 18px;
+	color:black;
+	border:0px;
+	margin:2px;
+	
+}
+
+
+
+
+
+.tag-input-ctn input:focus{
+	outline:0;
+	
+}
+.tag-input-ctn .input-tag{
+	
+	
+	padding:2px 4px;
+	line-height:12px;
+	font-size:11px;
+	background-color: #e3eaf6;
+	display: inline-block;
+	float:left;
+	border-radius:2px;
+	margin: 2px 5px 2px 0px
+}
+.tag-input-ctn .input-tag .delete-tag  {
+	display: inline-block;
+	font-size:11px;
+	cursor: pointer;
+	padding: opx 2px;
+	
+}
+.tag-input-ctn .input-tag .delete-tag:hover{
+	background-color: #96b4d2;
+	
+}
+.body{
+	margin-left: 50px;
+	border: 1px solid silver;
+}
+li label{ display: inline-block;}
+
+
+blockquote
+{
+  font-style: normal;
+  font-size: 16px;
+  margin-left: 32px;
+  font-family: Consolas, "Times New Roman", Verdana;
+  border-left: 4px solid #09C;
+  color:#09C;
+
+  padding-left: 8px;
+  margin-left:10px;
+}
+
+.dateColor{
+	
+	 color:#09C;
+	 
+}
+.div{border: 1px solid #09C;
+margin-top: 20px;
+width:300px;
+
+
+ }
+.image1{
+
+margin-top:-107px;
+
+border: 1px solid black;
+ 
+ }
+
+
+/* 
+ img{
+ margin-left:20px;
+ margin-top:10px;} */
+
+body{margin-top:50px; }
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+.user{margin-left:1000px;}
+.invitation{margin-left:700px;}
+
+
+.progress { 
+  height: 3em;
+  i { line-height: 3.5em; }
+}
+
+.progress-bar { 
+  transition: width 1s ease-in-out; 
+} 
+
+li{display:inline;}
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+    
+.image-upload-buttons {
+	
+	
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+
+/* Style */
+
+
+#mainwrapper {
+	font: 10pt normal Arial, sans-serif;
+	height: 140px;
+	margin: 80px auto 0 auto;
+	text-align: center;
+	width: auto;
+}
+
+/* Image Box Style */
+#mainwrapper .box {
+	border: 5px solid #fff;
+	cursor: pointer;
+	height: 140px;
+	float: left;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	width: 140px;
+		-webkit-box-shadow: 1px 1px 1px 1px #ccc;
+		-moz-box-shadow: 1px 1px 1px 1px #ccc;
+		box-shadow: 1px 1px 1px 1px #ccc;
+}
+#mainwrapper .box img {
+	position: absolute;
+	left: 0;
+		-webkit-transition: all 300ms ease-out;
+		-moz-transition: all 300ms ease-out;
+		-o-transition: all 300ms ease-out;
+		-ms-transition: all 300ms ease-out;	
+	transition: all 300ms ease-out;
+	
+}
+
+/* Caption Common Style */
+#mainwrapper .box .caption {
+	background-color: rgba(0,0,0,0.0);
+	position: absolute;
+	color: #fff;
+	z-index: 100;
+		-webkit-transition: all 300ms ease-out;
+		-moz-transition: all 300ms ease-out;
+		-o-transition: all 300ms ease-out;
+		-ms-transition: all 300ms ease-out;	
+		transition: all 300ms ease-out;
+	left: 0;
+}
+
+
+/** Caption 1: Simple **/
+#mainwrapper .box .simple-caption {
+	height: 25px;
+	width: 140px;
+	display: block;
+	bottom: -40px;
+	line-height: 30px;
+	text-align: center;
+	margin-right:10px;
+	 padding: 5px 0;
+}
+
+/** Simple Caption :hover Behaviour **/
+#mainwrapper .box:hover .simple-caption {
+	-moz-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	opacity: 1;
+	transform: translateY(-100%);
+}
+
+.listGroupe{
+	
+	margin-left:30px;
+}
+
+    
+ 

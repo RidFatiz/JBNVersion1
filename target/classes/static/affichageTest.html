@@ -1,0 +1,36 @@
+
+
+<head>     
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+		<link href="css/styleold.css" rel="stylesheet">
+</head>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+    <a href="#creerTest" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Test</a>
+        <tr>
+           
+            <th>Nom</th>
+            <th>Domaine</th>
+             <th>Temps</th>
+             <th>Date de creation</th>
+             <th>Nombre de questions</th>
+            
+        </tr>
+    </thead>
+            <tr ng-repeat="test in tests" >
+                <td>{{test.nomTest}} </td>
+                <td>{{test.domaineTest}} </td>
+                <td>{{test.delaiTest}} </td>
+                <td>{{test.dateTest | date : format : timezone }} </td>
+                 <td>{{test.questions.length}} </td>
+                <td> </td>
+                <td class="text-center"><a  class="btn btn-danger btn-xs" ng-click="deleteTest(test.idTest)"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            
+    </table>
+    </div>
+</div>

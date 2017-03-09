@@ -1,0 +1,424 @@
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>      
+
+<div class="panel panel-default"  ng-app="application">
+                         <div class="panel-heading"> Détails de votre <strong>compte utilisateur</strong></div>
+                         <div class="panel-body">
+
+						  <div id="profile-form-container" >
+<!-- 							<form id="h666663w0" action="#" method="post">-->	
+                  <!-- Nav tabs -->			
+               			      <ul id="profile-tabs" class="nav nav-tabs nav-justified  form-horizontal text-center" data-tabs="tabs">
+							     <li class="active">
+							        <a href="#perso" data-toggle="tab" aria-expanded="true"> 
+                   							<span class="fa-stack fa-lg  text-primary form-group">
+						                        <i class="fa fa-circle-o fa-stack-2x"></i>
+						                        <i class="fa fa-user fa-stack-1x"></i>
+						                    </span>
+						                   <span class="form-group" >Données personnelles </span> 
+						            </a>
+                                  </li>
+							     <li>
+ 									<a href="#formations" data-toggle="tab" aria-expanded="true">
+										    <span class="fa-stack fa-lg form-group text-primary">
+						                        <i class="fa fa-circle-o fa-stack-2x"></i>
+						                        <i class="fa fa-graduation-cap fa-stack-1x "></i>
+						                      </span>
+										     <span class="form-group" > Formations </span>
+						            </a>
+ 								</li>
+							     <li>
+ 								   <a  href="#competences" aria-expanded="true" data-toggle="tab">
+											    <span class="fa-stack fa-lg form-group text-primary">
+							                        <i class="fa fa-circle-o fa-stack-2x"></i>
+							                        <i class="fa fa-bars fa-stack-1x "></i>
+							                    </span>
+											   <span class="form-group" > Compétences </span>
+							       </a>
+								</li>
+								<li> 
+								    <a href="#langues" aria-expanded="true" data-toggle="tab">
+											    <span class="fa-stack fa-lg form-group text-primary">
+							                        <i class="fa fa-circle-o fa-stack-2x"></i>
+							                        <i class="fa fa-language fa-stack-1x "></i>
+							                      </span>
+											    <span class="form-group" > Langues </span>
+							       </a>
+								</li>
+								<li>
+							       <a  href="#loisirs" aria-expanded="true" data-toggle="tab">
+											    <span class="fa-stack fa-lg form-group text-primary">
+							                        <i class="fa fa-circle-o fa-stack-2x"></i>
+							                        <i class="fa fa-gamepad  fa-stack-1x "></i>
+							                     </span>
+											     <span class="form-group" > Loisirs </span>
+							        </a>
+							    </li>
+							  </ul>
+							 <div class="tab-content">
+    
+<div role="tabpanel" class="tab-pane active" id="perso" ng-controller="home as home">
+      <div class="panel-body">   
+           
+      <form class="form-horizontal" name="registerForm">            
+           <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.status.$invalid, 'has-success': registerForm.status.$valid}">           
+              <label class=" col-sm-3 control-label" for="status">Status</label>
+              <div class="col-sm-6">
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Celibataire" >Célibataire
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Marie" >Marié
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Veuve" >Veuve
+               <input id="status" type="radio" ng-model="home.user.status" required name="status" value="Divorce" >Divorcé
+            </div>
+          </div>
+          <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.Sexe.$invalid, 'has-success': registerForm.Sexe.$valid}">
+            <label class=" col-sm-3 control-label" for="Sexe">Civilité:</label>
+            <div class="col-sm-6">
+              <input id="Sexe" type="radio"  ng-model="home.user.genre"   value="Monsieur" required name="Sexe" />Monsieur
+              <input id="Sexe" type="radio"  ng-model="home.user.genre"  value="Madame"  required name="Sexe"/>Madame
+            </div>
+         </div>
+         
+         
+         
+          <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.titreCv.$invalid, 'has-success': registerForm.titreCv.$valid}">
+            <label class="col-sm-3 control-label" for="titreCv">Métier Actuelle</label>
+            <div class="col-sm-6">
+                <input id="titreCv" type="text" class="form-control" required name="titreCv" ng-model="home.user.titreCv" />
+            </div>
+        </div>
+         <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nom.$invalid, 'has-success': registerForm.Nom.$valid}">
+            <label class="col-sm-3 control-label" for="Nom">Nom</label>
+            <div class="col-sm-6">
+                <input id="Nom" type="text" class="form-control" required name="Nom" ng-model="home.user.Nom" />
+            </div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Prenom.$invalid, 'has-success': registerForm.Prenom.$valid}">
+            <label class="col-sm-3 control-label" for="Prenom">Prénom</label>
+            <div class="col-sm-6">
+                <input id="Prenom" type="text" class="form-control" required name="Prenom" ng-model="home.user.prenom" />
+            </div>
+        </div>
+        
+       
+        <div class="form-group " ng-class="{'has-error': registerForm.$dirty && registerForm.DateNaissance.$invalid, 'has-success': registerForm.DateNaissance.$valid}">
+            <label class=" col-sm-3 control-label" for="DateNaissance">Date de naissance</label>
+            <div class="col-sm-6">
+              <input id="DateNaissance" type="date" class="form-control" ng-model="home.user.dateNaissance" required name="date_naissance" />  
+            </div>
+       </div> 
+       
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Tel.$invalid, 'has-success': registerForm.Tel.$valid}">
+            <label class="col-sm-3 control-label" for="Username">Télephone</label>
+            <div class="col-sm-6">
+                <input id="Tel" type="text" class="form-control" required name="Tel" ng-model="home.user.tel" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Pays.$invalid, 'has-success': registerForm.Pays.$valid}">
+            <label class="col-sm-3 control-label" for="Pays">Pays</label>
+            <div class="col-sm-6">
+                <input id="Pays" type="text" class="form-control" required name="Pays" ng-model="home.user.pays" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Ville.$invalid, 'has-success': registerForm.Ville.$valid}">
+            <label class="col-sm-3 control-label" for="Ville">Ville</label>
+            <div class="col-sm-6">
+                <input id="Ville" type="text" class="form-control" required name="Ville" ng-model="home.user.ville" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Adresse.$invalid, 'has-success': registerForm.Adresse.$valid}">
+            <label class="col-sm-3 control-label" for="Adresse">Adresse</label>
+            <div class="col-sm-6">
+                <input id="Adresse" type="text" class="form-control" required name="Adresse" ng-model="home.user.adresse" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.code_postale.$invalid, 'has-success': registerForm.code_postale.$valid}">
+            <label class="col-sm-3 control-label" for="code_postale">Code Postal</label>
+            <div class="col-sm-6">
+                <input id="code_postale" type="text" class="form-control" required name="code_postale" ng-model="home.user.codePostale" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Nationalite.$invalid, 'has-success': registerForm.Nationalite.$valid}">
+            <label class="col-sm-3 control-label" for="Nationalite">Nationalité</label>
+            <div class="col-sm-6">
+                <input id="Nationalite" type="text" class="form-control" required name="Nationalite" ng-model="home.user.nationalite" />
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9 right"> 
+                <input type="submit" class="btn btn-info"  value="Enregistrer" ng-click="saveCandidat()" ng-controller="gererinscription" />
+                <input type="reset" class="btn btn-default"/>
+            </div>
+        </div>
+    </form> 
+     </div></div>
+    
+   <div role="tabpanel" class="tab-pane" id="formations"   ng-controller="profilCandidat" >
+              <div class="panel-body">
+                  <form class="form-horizontal" name="registerForm">
+                   
+                   <div ng-repeat="item in items track by $index ">
+                   <div>
+                    <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+                    <span aria-hidden="true">&times;</span></button>
+                   </div>
+                     <div ng-controller="home as home" > 
+      
+                        <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+   
+  
+                     <div class="form-group">
+                         <label class="col-sm-3 control-label" for="NiveauEtude">NiveauEtude:</label>
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="NiveauEtude"  value="Bac" />Bac
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="NiveauEtude" value="Bac+1"  />Bac+1
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="NiveauEtude"  value="Bac+2" />Bac+2
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="NiveauEtude" value="Bac+4"  />Bac+4
+                         <input type="radio"  ng-model="item[$index].niveauEtude"  name="NiveauEtude" value="Bac+5 et plus"  />Bac+5 et plus
+                     </div>
+                     <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.titreDiplome.$invalid, 'has-success': registerForm.titreDiplome.$valid}">
+                       <label class="col-sm-3 control-label" for="TitreDiplome">TitreDiplome:</label>
+                       <div class="col-sm-6">
+                       <input type="text" ng-model="item[$index].titreDiplome" class="form-control" required name="TitreDiplome"/>
+                    </div> 
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.descriptiondiplome.$invalid, 'has-success': registerForm.descriptiondiplome.$valid}">
+                       <label class="col-sm-3 control-label" for="Descriptiondiplome">Description diplome:</label>
+                       <div class="col-sm-6">
+                        <textarea   ng-model="item[$index].descriptiondiplome" class="form-control" required name="Descriptiondiplome"></textarea>
+                        </div>
+                   </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.etablissement.$invalid, 'has-success': registerForm.etablissement.$valid}">
+                       <label class="col-sm-3 control-label" for="Etablissement">Etablissement :</label>
+                       <div class="col-sm-6">
+                         <input type="text" ng-model="item[$index].etablissement" class="form-control"  />
+                        </div> 
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.dateDebu.$invalid, 'has-success': registerForm.dateDebu.$valid}">
+                       <label class="col-sm-3 control-label" for="DateDebut">DateDebut:</label>
+                       <div class="col-sm-6">
+                         <input type="date" ng-model="item[$index].dateDebut" class="form-control" />
+                       </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.dateFin.$invalid, 'has-success': registerForm.dateFin.$valid}">
+                      <label class="col-sm-3 control-label" for="DateFin">DateFin:</label>
+                      <div class="col-sm-6">
+                          <input type="date" ng-model="item[$index].dateFin" class="form-control" />
+                      </div>
+                    </div>
+                   </div> 
+                  <div>
+                    <a ng-click="addDiplome()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                   </div>
+                       <button ng-click="saveDiplome()" class="btn btn-info">Save</button>
+                       <input type="reset" class="btn btn-default"/>
+             </form>
+            </div>
+           </div>
+    
+<div role="tabpanel" class="tab-pane" id="experiences" ng-controller="profilCandidat">
+           <div class="panel-body">
+             <form class="form-horizontal" name="registerForm">
+         
+         <div ng-repeat="item in items track by $index ">
+         <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+         </div>
+           <div ng-controller="home as home" > 
+      
+                        <input type="text" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="text" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+           <div class="form-group">
+             <label class="col-sm-3 control-label">Poste</label>
+             <div class="col-sm-6">
+             <input type="text" ng-model="item[$index].poste" class="form-control"/>
+             </div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">type</label>
+              <div class="col-sm-6">
+              
+              
+              <select    ng-options="x for x in names" ng-model="item[$index].type" class="form-control">
+              
+              </select>
+              
+              </div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Description:</label>
+              <div class="col-sm-6">
+              <textarea ng-model="item[$index].description_experience" class="form-control"></textarea>
+              </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">Lieu :</label>
+               <div class="col-sm-6">
+              <input type="text" ng-model="item[$index].lieu" class="form-control"/>
+              </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">DateDebut:</label>
+               <div class="col-sm-6">
+               <input type="date" ng-model="item[$index].dateDebut" class="form-control"/>
+               </div>
+           </div>
+           <div class="form-group">
+               <label class="col-sm-3 control-label">DateFin:</label>
+               <div class="col-sm-6">
+               <input type="date" ng-model="item[$index].dateFin" class="form-control"/>
+               </div>
+           </div>
+           </div>
+            <div>
+               <a ng-click="addExperience()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+    <button ng-click="saveExperience()" class="btn btn-info">Save</button>
+    <input type="reset" class="btn btn-default"/>
+   </form>
+</div>
+ </div>  
+<div role="tabpanel" class="tab-pane" id="langues" ng-controller="profilCandidat">
+    
+          <div class="panel-body">
+    <form class="form-horizontal" name="registerForm">
+      <div ng-repeat="item in items track by $index ">
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+      <div ng-controller="home as home" > 
+           <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+           <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+        </div>
+      <div class="form-group">
+         <label class="col-sm-3 control-label">niveau de Langue:</label>
+         <div class="col-sm-6">
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau"  value="Debutant" />Débutant
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau"  value="Courant" />Courrant
+            <input type="radio"  ng-model="item[$index].niveau"  name="niveau" value="Intermediaire"  />Intermédiaire
+      </div></div>
+      <div class="form-group">
+           <label class="col-sm-3 control-label">Langue:</label>
+           <div class="col-sm-6">
+           <input type="text" ng-model="item[$index].langue" class="form-control"/>
+           </div>
+      </div>
+      
+     </div>
+     <div>
+               <a ng-click="addLangue()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+    <button ng-click="saveLangue()" class="btn btn-info">Save</button>
+    <input type="reset" class="btn btn-default"/>
+    
+  </form>
+ </div>
+    
+ </div>
+ 
+<div role="tabpanel" class="tab-pane" id="competences" ng-controller="profilCandidat">
+         <div class="panel-body"  >
+    <form class="form-horizontal" name="registerForm">
+      
+      <div ng-repeat="item in items track by $index " >
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+         <div ng-controller="home as home" > 
+      
+                        <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+           </div>
+         <div class="form-group" >
+             <label class="col-sm-3 control-label" >Type:</label>
+             <div class="col-sm-6">
+             <input type="text"  ng-model="item[$index].typeCompetence" class="form-control" />
+             </div>
+          </div>
+          <div class="form-group" >
+             <label class="col-sm-3 control-label">Compétence:</label>
+             <div class="col-sm-6">
+             <textarea   ng-model="item[$index].description_Competence" class="form-control"></textarea>
+             </div>
+          </div>
+       </div>
+       
+       <div>
+               <a ng-click="addCompetence()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+             </div>
+       <button ng-click="saveCompetence()" class="btn btn-info">Save</button>
+        <input type="reset" class="btn btn-default"/>
+        
+     </form>
+</div>
+</div>
+    
+<div role="tabpanel" class="tab-pane" id="loisirs" ng-controller="profilCandidat">
+         <div class="panel-body"  >
+    <form class="form-horizontal" name="registerForm">
+      
+      <div ng-repeat="item in items track by $index " >
+      <div>
+         <button type="button" class="close" aria-label="Close" ng-click="items.splice($index, 1)">
+         <span aria-hidden="true">&times;</span></button>
+      </div>
+         <div ng-controller="home as home" > 
+      
+                        <input type="hidden" ng-model="item[$index].candidat.username=home.user.username " />
+                        <input type="hidden" ng-model="item[$index].candidat.typeUser=home.user.typeUser " />
+                  </div>
+         <div class="form-group" >
+             <label class="col-sm-3 control-label" >Loisir:</label>
+             <div class="col-sm-6">
+             <input type="text"  ng-model="item[$index].typeLoisir" class="form-control" />
+             </div>
+          </div>
+          <div class="form-group" >
+             <label class="col-sm-3 control-label">Description:</label>
+             <div class="col-sm-6">
+             <textarea   ng-model="item[$index].description" class="form-control"></textarea>
+             </div>
+          </div>
+       </div>
+       
+           <div>
+               <a ng-click="addLoisir()">
+                  <span class="glyphicon glyphicon-plus"></span>
+               </a>
+            </div>
+             
+       <button ng-click="saveLoirir()" class="btn btn-info">Save</button>
+        <input type="reset" class="btn btn-default"/>
+        
+     </form>
+</div>
+
+    </div>
+    
+                       </div>
+					 </div>
+				   </div>
+			  </div>
+
+   
+<script type="text/javascript"  src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/app.js"></script>
+
+
+

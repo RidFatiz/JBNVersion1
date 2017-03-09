@@ -1,0 +1,77 @@
+<!doctype html>
+<html  ng-app="application">
+<head>
+<link  rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css"/>
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="BootstrapAngular/bootstrap-combined.min.css"/>
+<link  rel="stylesheet" type="text/css"  href="css/style.css"   />
+<title>Student Details App</title>
+</head>
+    
+<body>
+<div class="row-fluid" ng-controller="noteProfil">
+<ul>
+       
+      
+       <li ng-if="noteCompetence==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteCompetence==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+     
+       <li ng-if="noteDiplome==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteDiplome==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+    
+       <li ng-if="noteExperience==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteExperience==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteLangue==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteLangue==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteLoisir==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li  ng-if="noteLoisir==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteProfil==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteProfil==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+        <li ng-if="noteProfil==12">
+         <i class="fa fa-star-half-o " aria-hidden="true" ></i>
+       </li>
+       
+     
+        
+        
+        </ul>
+       
+        </div>
+   
+
+
+    <!--Required JS Files List :start -->
+    
+    
+     <!-- <progress percent="promise"  ></progress> -->
+    <script src="angular/angular.min.js"></script>
+     <script src="angular/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/bar.js"></script>
+   
+    </body>
+</html>

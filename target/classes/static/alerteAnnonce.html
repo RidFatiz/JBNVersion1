@@ -1,0 +1,65 @@
+
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
+</head>
+<body   ng-app="application" ng-controller="gestionAlerte">
+<div class="panel panel-default">
+      <div class="panel-heading">
+             Notifications sur  <strong>Les offres des recruteurs</strong></div>
+      <div class="panel-body">
+        <form id="h117730w0">
+             <input type="hidden" name="_csrf" value="S1ZaN1ZkTGsFBBlNHTsDXRwTa2EYNHxdOjU1Aj9JFltyFA9/ZykHXQ==">
+             <strong>Notifications</strong><br>
+
+             <div class="form-group field-accountemailing-enable_html5_desktop_notifications">
+                <input type="hidden" name="AccountEmailing[enable_html5_desktop_notifications]" value="0">
+                <label for="accountemailing-enable_html5_desktop_notifications">
+                <input type="checkbox" id="accountemailing-enable_html5_desktop_notifications" name="AccountEmailing[enable_html5_desktop_notifications]" value="1" class="regular-checkbox"> 
+                Recevoir les offres des recruteurs sur votre boite mail.
+                <div class="regular-checkbox-box"></div></label>
+             </div>
+       </form>
+     </div>
+     <hr>
+     <div class="panel-heading">
+            Configurer  <strong>Les alertes</strong></div>
+      <div class="panel-body">
+        <form id="h117730w0" >
+             <input type="hidden" name="_csrf" value="S1ZaN1ZkTGsFBBlNHTsDXRwTa2EYNHxdOjU1Aj9JFltyFA9/ZykHXQ==">
+
+             <div class="form-group field-accountemailing-enable_html5_desktop_notifications">
+                <input type="hidden" name="" value="0">
+                    <div  class="form-group">
+					    <label>Poste:</label>  <input type="text"  ng-model="alert.poste" class="form-control">
+					</div>
+					<div class="form-group">
+					<label> Secteur:</label>
+					<select    ng-options="x for x in secteur" ng-model="alert.secteur" class="form-control">
+                     </select>
+					</div>
+					<div class="form-group">
+					<label> Région:</label>
+					<select    ng-options="x for x in region" ng-model="alert.region" class="form-control">
+                     </select>
+					</div>
+					
+					<input type="submit"  value="créer une alerte " ng-click="savealerte()"  class="btn btn-info"/>
+
+                
+             </div>
+            
+       </form>
+     </div>
+</div>
+
+ 
+<script type="text/javascript"  src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/app.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</body>
+</html>

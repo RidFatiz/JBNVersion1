@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html>
+<head>     
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- start: Meta -->
+        <title>JobNetwork</title>
+        <!-- end: Meta -->
+       
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- end: Mobile Specific -->
+       
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/styleold.css" rel="stylesheet">
+		
+		<link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/temp.css" rel="stylesheet">
+		<link href="css/bootstrap-wysihtml5.css" rel="stylesheet">
+		<link href="css/flatelements.css" rel="stylesheet">
+		<link href="css/jquery.atwho.css" rel="stylesheet">
+		<link href="css/mail.css" rel="stylesheet">
+		
+		        
+		        <!-- start: render additional head (css and js files) -->
+		<link href="css/theme.css" rel="stylesheet">
+		<link href="css/open-sans.css" rel="stylesheet">
+		        <!-- end: render additional head -->
+        
+    </head>
+
+<body ng-app="application" ng-controller="home as home">
+
+    <!-- start: first top navigation bar -->
+    <div id="topbar-first" class="topbar">
+        <div class="container">
+            <div class="topbar-brand hidden-xs">
+                <a class="navbar-brand"  href="#" id="text-logo">
+                   JobNetwork    
+                </a>
+            </div>
+   <div class="topbar-actions pull-right">
+     <ul class="nav">
+        <li class="dropdown account">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="user-title pull-left hidden-xs">
+                    <strong>{{home.user.Nom}} {{home.user.prenom}}</strong><br><span class="truncate">{{home.user.role}}</span>
+                </div>
+              
+                <img  src="css/fa-user.png" style="color:blue;"  class="img-rounded"  height="32" width="32" alt="32x32" data-src="holder.js/32x32" style="width: 32px; height: 32px;">  
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu pull-right">
+               <li><a href="/cand.html/profilC"><i class="fa fa-user"></i> Mon profil</a> </li>
+               <li><a href="/cand.html"><i class="fa fa-cogs"></i> Paramètres du compte </a></li>
+               <li class="divider"></li>
+               <li><a href="/404.html"> <i class="fa fa-lock"></i> Securité du compte</a></li>
+               <li><a href="/404.html"><i class="fa fa-unsorted"></i>Statistiques</a></li>
+               <li class="divider"></li>
+               <li> <a href="/logout" method="POST"><i class="fa fa-sign-out"></i> Se déconnecter</a></li>
+            </ul>
+        </li>
+    </ul>
+   </div>
+   <div class="notifications pull-right">
+			   <div class="btn-group">
+			                 <a href="#" id="icon-notifications" data-toggle="dropdown">
+			                     <i class="fa fa-bell"></i>
+			                  </a>
+			              <span id="badge-notifications" style="display:none;" class="label label-danger label-notifications">1</span>
+			
+			    <!-- container for ajax response -->
+			    <ul id="dropdown-notifications" class="dropdown-menu">
+			        <li class="dropdown-header">
+			            <div class="arrow"></div>Notifications 
+			            <div class="dropdown-header-link">
+			              <a id="mark-seen-link" href="javascript:markNotificationsAsSeen();" >
+			              Tout marquer comme lu</a>
+			            </div>
+			        </li>
+			        <ul class="media-list" tabindex="0" >
+			          <li id="loader_notifications" ng-controller="ProfilAmi">
+			          
+			            <div ng-repeat="i in visiteurs" >
+                                       <a  href="#/u/{{i.username}}" >{{i.Nom}} {{i.prenom}}{{i.titreCv}}</a> a visité votre profil.
+                        </div>
+			             <div id="" class="loader ">
+			               <div class="sk-spinner sk-spinner-three-bounce">
+			                  
+			               </div>
+			           </div>       
+			          </li>
+			        </ul>
+			    <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="padding-right: 3px; width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: -10px; height: 0px;" >
+			         <div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 7px; height: 0px; border-radius: 5px; background-color: rgb(85, 85, 85); background-clip: padding-box;">
+			         </div>
+			    </div>
+			    <div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 1000; top: -7px; left: 0px; position: absolute; cursor: default; ">
+			         <div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 7px; width: 0px; border-radius: 5px; background-color: rgb(85, 85, 85); background-clip: padding-box;">
+			         </div>
+			    </div>
+			  </ul>
+			</div>
+			  <div class="btn-group">
+			    <a href="#" id="icon-messages" class="dropdown-toggle" data-toggle="dropdown">
+			           <i class="fa fa-comments"></i></a>
+			            <span id="badge-messages" style="display:none;" class="label label-danger label-notification">1</span>
+			           <ul id="dropdown-messages" class="dropdown-menu">
+			                    <li class="dropdown-header">
+			                       <div class="arrow"></div>Messages 
+			                       <a id="create-message-button" class="btn btn-info btn-xs" href="/mail/mail/create?ajax=1" data-target="#globalModal">Nouveau message</a>
+			                    </li> 
+			                       <ul class="media-list">
+			                           <li id="loader_messages">
+			                              <div class="loader"></div>
+			                           </li>
+			                      </ul>
+			                    <li>
+				                   <div class="dropdown-footer">
+				                        <a class="btn btn-default col-md-12" href="/mail/mail/index">Montrer tous les messages</a>
+				                   </div>
+				                </li>
+				        </ul>
+			</div>
+			
+			
+			   
+			<div class="btn-group"  ng-controller="gestioninvitation">
+			                 <a href="#relation" id="icon-notifications" data-toggle="dropdown">
+			                     <i class="fa fa-users"></i>
+			                  </a>
+			              <span id="badge-notifications"  class="label label-danger label-notifications">1</span>
+			
+			    <!-- container for ajax response -->
+			    <ul id="dropdown-notifications" class="dropdown-menu">
+			        <li class="dropdown-header">
+			            <div class="arrow"></div>Relations            
+			            <div class="dropdown-header-link">
+			              <a id="mark-seen-link" href="#">Tout marquer comme lu</a>
+			            </div>
+			        </li>
+			         <ul class="media-list">
+			          <li id="loader_notifications">
+			              <div id="" class="loader ">
+							 <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" >
+  
+  
+  
+    
+    
+    <li role="presentation">
+    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" ><span style="color:silver">Invitation reçue</span></a>
+    <div ng-repeat="i in invitationRecue track by $index">
+    
+    <a href="u/{{p.user.username}}" class="pull-left">
+                <img class="media-object img-rounded user-image user-7417e6d0-8b7f-4e21-8a96-363eb5b1ad37" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" src="image/1.jpg" height="40" width="40" ng-src="{{i.destinataire.photo}}">
+       </a>
+               
+               <span>{{i.destinataire.username}}</span>
+               <input type="hidden" ng-model="i.idInvitation"/>
+               <span><input type="submit" value="confirmer"   class="btn btn-info" ng-click="accepterInv(i.idInvitation)"></span>
+               <span><input type="submit" value="Annuler" class="btn btn-default" ng-click="annulerInv(i.idInvitation)"></span>
+     </div>
+     <div ng-controller="gestiongroupe">
+ <div ng-repeat="groupe in groupe1">
+
+<div ng-repeat="g in groupe.groupeuser" ng-if="g.accept!=true">
+{{groupe.nomGroupe}} 
+{{g.date}}
+{{g.accept}}
+{{g.user.username}}
+<input type="submit" ng-click="Accepter(g.id)" class="btn btn-info"  value="accepter">
+<input type="submit" ng-click="deleteInvitation(g.id)" class="btn btn-default" value="annuler">
+</div>
+</div>
+</div>
+ 
+    </li>
+    <li role="presentation" >
+    <a href="#home" aria-controls="home" role="tab" data-toggle="tab" ><span style="color:silver">Invitation envoyée</span></a>
+    <div ng-repeat="i in invitationEnvoyee track by $index">
+    <a href="u/{{p.user.username}}" class="pull-left">
+                <img class="media-object img-rounded user-image user-7417e6d0-8b7f-4e21-8a96-363eb5b1ad37" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" src="image/1.jpg" height="40" width="40" ng-src="{{i.recepteur.photo}}">
+       </a>
+               <span>{{i.recepteur.username}}</span>
+               <input type="hidden" ng-value="i.idInvitation"/>
+               <span><input type="submit" value="Annuler"  class="btn btn-info" ng-click="annulerInv(i.idInvitation)"></span>            
+     </div>
+    </li>
+    
+    <li role="presentation">
+    <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" ><span style="color:silver">Liste d'amis</span></a>
+    <div ng-repeat="i in amis track by $index">
+    <a href="u/{{p.user.username}}" class="pull-left">
+                <img class="media-object img-rounded user-image user-7417e6d0-8b7f-4e21-8a96-363eb5b1ad37" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" src="image/1.jpg" height="40" width="40" ng-src="{{i.recepteur.photo}}">
+       </a>
+                  
+               <span>{{i.recepteur.username}}</span>
+               <span><input type="submit" value="Retirer"  class="btn btn-info" ng-click="annulerInv(i.idInvitation)"></span>
+             </div>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    
+   
+  </div>
+
+</div>
+			          
+			             
+			               <!-- <div class="sk-spinner sk-spinner-three-bounce">
+			                  <div class="sk-bounce1"></div>
+			                  <div class="sk-bounce2"></div>
+			                   <div class="sk-bounce3"></div>
+			               </div> -->
+			           </div>        
+			        </li></ul> 
+			        
+			        
+			        
+			    <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="padding-right: 3px; width: 7px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: -10px; height: 0px; "><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 7px; height: 0px; border-radius: 5px; background-color: rgb(85, 85, 85); background-clip: padding-box;">
+			    </div></div>
+			    <div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 1000; top: -7px; left: 0px; position: absolute; cursor: default; "><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 7px; width: 0px; border-radius: 5px; background-color: rgb(85, 85, 85); background-clip: padding-box;">
+			    </div></div></ul>
+			</div>
+  <div class="modal" id="confirmModal_modal_profileimagedelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-extra-small animated pulse">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel"><strong>Confirmer</strong> la suppression de l'image</h4>
+            </div>
+            <div class="modal-body text-center">
+                Souhaitez-vous vraiment supprimer l'image de votre profil ?            </div>
+            <div class="modal-footer">
+                
+                <button id="h412452w1" class="btn btn-primary" return="true" data-dismiss="modal" ng-click="deletePhoto(home.user.username)" ng-controller="gererinscription">Supprimer</button>                                               
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+             </div>
+        </div>
+    </div>
+</div>
+  </div>
+</div>
+
+    </div>
+    <!-- end: first top navigation bar -->
+
+
+    <!-- start: second top navigation bar -->
+    <div id="topbar-second" class="topbar">
+        <div class="container">
+            <ul class="nav ">
+                <!-- load space chooser widget -->
+                
+<li class="dropdown">
+    <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- start: Show space image and name if chosen -->
+                    <div class="current-space-image space-profile-acronym-1 space-acronym" style=" background-color: #6fdbe8; width: 32px; height: 32px; font-size: 14.08px; padding: 5.76px 0; border-radius: 2px;"><i class="fa fa-search"></i></div>
+                    <img class="current-space-image space-profile-image-1 img-rounded profile-user-photo hidden" src="./HumHub_profil_files/default_space.jpg" alt="Welcome Space" style=" width: 32px; height: 32px">        
+        <!-- end: Show space image and name if chosen -->
+        <b class="caret"></b>
+    </a>
+     
+    <ul class="dropdown-menu" id="space-menu-dropdown">
+        <li>
+      
+            <form action="#" class="dropdown-controls"  ng-controller="gestioninvitation">
+            <textarea type="text" id="space-menu-search" class="form-control" ng-model="selectedstate" 
+                  typeahead-min-length="0" typeahead="person  for person in  states| filter:$viewValue" 
+                   typeahead-on-select="onSelect($item, $model, $label)"
+                     placeholder="Select person" typeahead-template-url="customTemplate.html" rows="1">
+                      </textarea>
+		       
+                <div class="search-reset" id="space-search-reset"><i class="fa fa-times-circle"></i></div>
+                
+                
+            </form>
+            
+             <script type="text/ng-template" id="customTemplate.html">
+                <ul class="">
+                  <li class="">
+                    <a  href="#/u/{{match.model.username}}" >
+                        <img ng-src="{{match.model.photo}}"  height="32" width="32"/>
+                        <strong>{{match.model.nom}} {{match.model.prenom}} </strong> 
+                        <small>({{match.model.titreCv}})</small>
+
+                       
+                    </a>
+                  </li>
+                 
+                 
+
+                 </ul>
+
+
+
+           </script>
+        </li>
+        
+     </ul>
+</li>
+
+<!-- load navigation from widget -->
+    <li class="visible-md visible-lg  dashboard">
+         <a class=" dashboard" href="/Accueil.html"><i class="fa fa-home"></i><br>Acceuil</a></li>
+    <li class="visible-md visible-lg  dashboard">
+         <a class=" dashboard" href="#publicationUserR"><i class="fa fa-tachometer"></i><br>Fil d'actualité</a></li>
+    <li class="visible-md visible-lg">
+         <a class=" dashboard" href="rec.html"><i class="fa fa-user"></i><br>Mon profil</a></li>
+    <li class="visible-md visible-lg">
+         <a class=" dashboard" href="#myPubR"><i class="fa fa-photo"></i><br>Publications</a></li>
+    <li class="visible-md visible-lg ">
+         <a class="" href="#pubAnnonce"><i class="fa fa-envelope"></i><br>Publier annonces</a></li>
+    <li class="visible-md visible-lg  directory">
+        <a class=" directory" href="#postulation"><i class="fa fa-book"></i><br>les Postulations</a></li>
+ <li class="visible-md visible-lg  directory">
+        <a class=" directory" href="#LancerTest"><i class="fa fa-building" aria-hidden="true"></i><br>Test</a></li>
+
+<li class="dropdown visible-xs visible-sm">
+    <a href="#" id="top-dropdown-menu" class="dropdown-toggle" data-toggle="dropdown">
+        Menu  <br><i class="fa fa-align-justify"></i>
+         <b class="caret"></b></a>
+    <ul class="dropdown-menu ">
+       <li class="">
+         <a class=" dashboard" href="/Acceuil.html"><i class="fa fa-home"></i>Acceuil</a></li>
+    <li class="visible-md visible-lg  dashboard">
+         <a class=" dashboard" href="#pub"><i class="fa fa-tachometer"></i>Fil d'actualité</a></li>
+    <li class="">
+         <a class=" dashboard" href="/cand.html/profilC"><i class="fa fa-user"></i>Mon profil</a></li>
+    <li class="">
+         <a class=" dashboard" href="#myPub"><i class="fa fa-photo"></i>Publications</a></li>
+    <li class=" ">
+         <a class="" href="#annonce"><i class="fa fa-envelope"></i>Annonces</a></li>
+    <li class="">
+        <a class=" directory" href="/404.html"><i class="fa fa-book"></i>Annuaire d'entreprise</a></li>
+    </ul>
+</li> 
+ </ul>
+ 
+ <ul class="nav pull-right" id="search-menu-nav">              
+<li class="dropdown">
+    <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-search"></i></a>
+    <ul class="dropdown-menu pull-right" id="search-menu-dropdown">
+        <li>
+            <form action="" class="dropdown-controls" ng-controller="gestioninvitation">
+                <textarea type="text" id="space-menu-search" class="form-control" ng-model="select"  
+                  typeahead-min-length="0" typeahead="state  for state in  groupeall| filter:$viewValue" 
+                      placeholder="Rechercher Groupe" typeahead-template-url="customTemplate1.html" rows="1"></textarea>
+		       
+                <div class="search-reset" id="space-search-reset"><i class="fa fa-times-circle"></i></div>
+            </form>
+             <script type="text/ng-template" id="customTemplate1.html">
+                <ul class="">
+                  <li class="">
+                    <a  href="#/groupe3/{{match.model.idGroupe}}">
+                        
+                      
+                         <small>{{match.model.nomGroupe}}</small>
+
+                       
+                    </a>
+                  </li>
+                 
+                 
+
+                 </ul>
+
+
+
+           </script>
+
+                <div class="search-reset" id="search-search-reset">
+                <i class="fa fa-times-circle"></i></div>
+            </form>
+        </li>
+    </ul>
+   </li>           
+  </ul>
+</div>
+</div>
+    <!-- end: second top navigation bar -->
+
+    
+    <!-- start: show content (and check, if exists a sublayout -->
+    
+<div class="container">
+   
+ <div class="row">
+
+<div class="col-md-7">             
+
+<div id="wallStream">
+
+
+			             
+     <div class="s2_stream" >
+
+      <div class="s2_streamContent" ng-view>
+      </div>
+
+        
+</div>
+
+		
+		
+		
+</div>
+
+
+</div>
+
+ <!-- end: show content -->
+ 
+</div> 
+ 
+ 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+<script type="text/javascript"  src="js/angular-route.js"></script>
+<script type="text/javascript"  src="js/app.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+      
+</body>
+</html>

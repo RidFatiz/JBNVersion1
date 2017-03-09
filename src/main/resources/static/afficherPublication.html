@@ -1,0 +1,78 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<title>Insert title here</title>
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min-icon.css"/>
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link  rel="stylesheet" type="text/css"  href="css/styleold.css"   />
+</head>
+
+
+
+<body ng-app="Publication" ng-controller="publier">
+
+<div>
+
+<article>
+ <ul>
+ 
+
+
+          <li ng-repeat="p in publication track by $index"> 
+          <label>{{p.user.nom}} {{p.user.prenom}} </label> {{p.datePublication  | date : format : timezone }} <br/>  
+          <div class="form-group">
+                 <label>{{p.description}}</label><br/>
+                
+                <span ng-if="p.lien"><img ng-src="{{p.lien}}"  ng-bind="p.lien" class="img"/></span> 
+                
+                               
+           </div>            
+            {{p.user.publication.length}}
+           <div ng-switch="button[$index]">
+                <span ng-switch-when="Je n'aime pas"><a  ng-bind="button[$index]" ng-click="deleteaime(p.id)"></a></span>
+                <span ng-switch-when="J'aime"><a ng-click="saveAimer(p.id)"  ng-bind="button[$index]"  > </a></span>
+                {{button[$index]}}
+           </div>
+           <a ng-click="comment=true">commenter</a>
+        <a   ng-click="afficherCommentaire(p.id) " ><i class="glyphicon glyphicon-comment" >{{p.commentaire.length}}</i></a>
+           <a   ng-click="afficheraime(p.id)"><i class="glyphicon glyphicon-heart-empty">{{p.aime.length}}</i></a> 
+            
+     {{lo}}
+     
+         <div  ng-show="comment"  >
+          <input  type='hidden'ng-model="p.id"  />
+          <input  type="text" ng-model="text"  ng-change="change(text)"  placeholder="Ajouter un commentaite.."/>
+          <input  type="submit" ng-click="saveCommentaire(p.id)"  value="commenter "/> 
+         </div> 
+         
+    <div ng-show="true">
+         <div ng-repeat="c in publicationC">
+        
+           {{c.user.nom}} {{c.user.prenom}}
+           {{c.text}}
+           {{c.dateCommentaire}}
+        </div> 
+       
+  
+         <div ng-repeat="v in publicationA">
+         
+           hhh {{v.id}}
+           jk{{a.aime.user.nom}} {{a.user.prenom}}
+          </div>
+   </div>
+</li>
+
+</ul>
+</article>
+</div>
+  <footer>  </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/publier.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,567 @@
+
+
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+      <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+        
+        <!-- start: render additional head (css and js files) -->
+        <link href="css/theme.css" rel="stylesheet">
+        <!-- end: render additional head -->
+
+        <link href="css/styleold.css" rel="stylesheet">
+
+</head>
+
+<div class="container" ng-app="application">
+   <div class="row">
+<div class="col-md-12">         
+  <div class="panel panel-default panel-profile">
+    <div class="panel-profile-header">	
+        <div class="image-upload-container" style="width: 100%; height: 100%; overflow:hidden;">
+            <img class="img-profile-header-background" id="space-banner-image" src="image/default_banner.jpg" style="width: 100%;" width="100%">
+          
+            <div class="img-profile-data">
+                <h1 class="space">Bonjour {{home.user.nom}} {{home.user.prenom}}</h1>
+                <h2 class="space">{{home.user.title}} </h2>
+            </div>
+        </div>
+   <div class="image-upload-container profile-user-photo-container" id="mainwrapper" style="width: 140px; height: 140px;">           
+         
+                <div id="box" class="box">
+                 <div  ng-if="home.user.photo.length==null">
+                     <img src="image/default_user.jpg"/>                      
+                  </div> 
+                  <div ng-show="home.user.photo!=null">
+                     <img  ng-src="{{home.user.photo}}" />                      
+                  </div>
+                <div> 
+        
+      <div class="image-upload-buttons caption simple-caption"  style="display: block;">
+      
+         <div   class="btn btn-info btn-xs">
+                    <form method="POST" action="/savephoto" enctype="multipart/form-data" > 
+              <div class="image-uploade" style="display:inline-block ;"  >
+                   <label for="file-input">
+                      
+					    <i class="fa fa-cloud-upload"  ></i>
+					 
+				 
+                   </label>
+                       <input type="file"  name="fileUpload"    id="file-input"  />
+               </div>  
+               
+                  
+             </form> 
+                    </div>   
+                    
+           <div id="deleteLinkPost_modal_bannerimagedelete" class="btn btn-danger btn-sm " ng-click="deletePhoto(home.user.username)" value="delete" ng-controller="gererinscription" data-toggle="modal" data-target="#confirmModal_modal_bannerimagedelete">
+           <i class="fa fa-times"></i>    </div> 
+                      
+     </div>
+       </div>
+    
+     </div> 
+     </div>
+</div>
+    <div class="panel-body">
+        <div class="panel-profile-controls">
+           
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="statistics pull-left">
+
+                        <div class="pull-left entry">
+                            <span class="count" ng-controller="home as home " >{{countpublication}}</span>
+                            <br>
+                            <span class="title">Publication</span>
+                        </div>
+
+                        <div class="pull-left entry">
+                            <span class="count" ng-controller="home as home " >{{countAmis}}</span><br>
+                            <span class="title">Amis</span>
+                        </div>
+                        <div class="pull-left entry">
+                            <span class="count" ng-controller="home as home " >{{countpostulation}}</span><br>
+                            <span class="title">Postulation</span>
+                        </div>
+                    </div>
+                  
+
+                    <div class="controls controls-header pull-right">
+                      
+                 
+       <ul ng-controller="noteProfil">
+        <li ng-if="noteCompetence==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteCompetence==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+     
+       <li ng-if="noteDiplome==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteDiplome==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+    
+       <li ng-if="noteExperience==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteExperience==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteLangue==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteLangue==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteLoisir==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li  ng-if="noteLoisir==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+       <li ng-if="noteProfil==0">
+         <i class="fa fa-star-o " aria-hidden="true" ></i>
+       </li>
+        <li ng-if="noteProfil==25">
+        <i class="fa fa-star" aria-hidden="true" style="color:blue;" ></i>
+       </li>
+        <li ng-if="noteProfil==12">
+         <i class="fa fa-star-half-o " aria-hidden="true" ></i>
+       </li>
+        </ul>      <span>Grade de votre profil</span>
+               
+    <div class="btn-group dropdown-navigation open">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-cog"></i>            
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+                <li><a class="" href="/cand.html"><i class="fa fa-cogs"></i> <span>Settings</span></a> </li>
+                
+                
+                
+                <li class="visible-md visible-lg dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><i class="fa fa-group"></i> <span>Groupes</span>
+             <b class="caret"></b>
+             <ul class="dropdown-menu">
+			       <li class="">
+			         <a class=" dashboard" href="#Myannonce">Voir les annonces</a></li>
+			       <li class="visible-md visible-lg  dashboard">
+			          <a class=" list-group-item" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-users" ></i><span>Créer Groupes</span></a>                                                  
+			</ul>    
+         </a>
+     </li>
+     
+               
+                <li><a class="" href="#"><i class="fa fa-rocket"></i> <span>Modules</span></a></li>
+                <li><a class="" href="#"><i class="fa fa-archive"></i> <span>Prenium</span></a></li>
+                
+                <li><a class="tt" href="#" title="" data-method="POST" data-toggle="tooltip" data-placement="left" data-original-title="option">
+                   <i class="fa fa-eye-slash"></i> <span>Hide posts on dashboard</span></a> 
+                </li>    
+        </ul>
+	    </div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+</div> 
+ <div class="row">
+<div class="col-md-2 layout-nav-container">
+            
+<!-- start: list-group navi for large devices -->
+<div class="panel panel-default">
+    <div class="panel-heading">Menu <strong>Espace</strong></div>
+        <div class="list-group">
+             <a class=" active list-group-item" href="/404.html"><i class="fa fa-calendar"></i><span>Evenement</span></a>                                           
+             <a class=" list-group-item" href="#groupe"><i class="fa fa-users"></i><span>Groupes</span></a> 
+             <div ng-controller="gestiongroupe" class="listGroupe">
+            
+            <div ng-repeat="groupe in groupe1">
+                
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+             </div> 
+            
+       
+                 <div ng-repeat="groupe in groupemembre">
+                          <a  href="#/groupe2/{{groupe.idGroupe}}">
+                           {{groupe.nomGroupe}} 
+                                     </a>
+                 </div> 
+               
+               </div>
+               
+            <a   class="listGroupe" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" ></i><span style="font-size:13px">Créer un Groupe</span></a>                                                                                                    
+              <a class=" list-group-item" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myformation"><i class="fa fa-users" ></i><span>Formations</span></a>                                            
+             <a class=" list-group-item" href="/404.html"><i class="fa fa-book"></i><span>Articles</span></a>                    
+        </div>             
+     </div>
+<!-- end: list-group navi for large devices -->
+    <br>
+  </div>
+<div class="col-md-7">             
+<div class="panel panel-default" ng-controller="publier">
+    <div class="panel-body" id="contentFormBody">          
+          <form   enctype="multipart/form-data"  action="/publication" method="post"  >
+             
+           <input name="_csrf" value="Z29xdFJRX0ENHRktYgY5eCI8BAA8KQUZAB1FQDAbLBYzLi43FwcvcQ==" type="hidden">
+           <textarea name="description" ng-model="publication.description" placeholder="Puliez quelque chose..." rows="1" id="contentForm_message" class="form-control autosize contentForm"></textarea>  
+       
+           
+            <div class="contentForm_options">
+            <hr>
+            <div class="btn_container">
+                                
+                <span class="btn btn-info btn-file">
+            
+              <i class="fa fa-cloud-upload" > 
+              <input type="file" name="file" style="display:inline-block;" >
+              </i>
+             </span>   
+       <button type="submit" id="post_submit_button" class="btn btn-info">Publier</button>  
+            </div>
+
+            <div class="progress" id="fileUploaderProgressbar_contentFormFiles" style="display:none">
+              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+              </div>
+           </div>
+        </div>
+        <!-- /contentForm_Options -->
+        </form>  
+ </div>    <!-- /panel body -->
+</div> <!-- /panel -->
+
+<div id="wallStream">
+     
+     
+     
+
+     <div ng-app="application" ng-controller="publierAmis">
+<div class="wall-entry" id="wallEntry" ng-repeat="p in publication  track by $index" >
+
+<div class="panel panel-default wall_humhubmodulespostmodelsPost">
+    <div class="panel-body">
+        <div class="media">
+            <!-- start: show wall entry options -->
+            <ul class="nav nav-pills preferences">
+                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#pub">
+                      <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">                      
+	                    <li>
+						    <a id="deleteLinkPost_modal_postdelete" href="#pub" data-toggle="modal" data-target="#confirmModal_modal_postdelete">
+						           <i class="fa fa-trash-o"></i> Supprimer  
+						    </a>
+					   </li> 
+				   </ul>
+                </li>
+            </ul>
+            <!-- end: show wall entry options -->
+
+            <a href="u/{{p.user.username}}" class="pull-left">
+                <img class="media-object img-rounded user-image user-7417e6d0-8b7f-4e21-8a96-363eb5b1ad37" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" src="image/1.jpg" height="40" width="40" ng-src="{{p.user.photo}}">
+            </a>
+            <div class="media-body">
+
+                <!-- show username with link and creation time-->
+                <h4 class="media-heading"><a href="/u/{{p.user.username}">{{p.user.nom}} {{p.user.prenom}}</a>
+                    <small>
+                        <span class="time" title="28 avr. 2016 - 17:56">{{p.datePublication  | date : format : timezone }}</span>                       
+                        <!-- show space name -->                                              
+                        <span class="label label-success">Public</span>
+                    </small>
+                </h4>
+                <h5>{{p.titre_cv}}</h5>
+           </div>
+           <hr>
+            <div class="content" >
+                                
+                  <span id="post-content" style="overflow: hidden; margin-bottom: 5px;">
+                       {{p.description}}
+                    </span>
+	              <a class="more-link-post hidden" id="more-link-post" data-state="down" style="margin: 20px 0 20px 0;" href="javascript:showMore(1);">
+	                <i class="fa fa-arrow-down"></i> Lire tout...
+	              </a>
+                
+                <div class="post-files" ng-if="p.lien">
+                    <a data-toggle="lightbox" data-gallery=""  data-footer="<button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-dismiss=&quot;modal&quot;>Fermer</button>">
+                    
+                        <img ng-src="{{p.lien}}"  >
+                    </a>          
+               </div>
+                
+            </div>
+           <hr>
+            
+  <div class="wall-entry-controls">
+
+           <div ng-switch="button[$index]" style="display:inline-block;">
+                <span ng-switch-when="Je n'aime pas" class="like likeAnchor"><a  ng-bind="button[$index]" ng-click="deleteaime(p.id)"></a></span>
+                <span ng-switch-when="J'aime" class="unlike likeAnchor"><a ng-click="saveAimer(p.id)"  ng-bind="button[$index]"  > </a></span>
+           </div>
+           <a ng-click="comment=true">commenter</a>
+           &nbsp;·&nbsp;
+           <a ng-click="afficherCommentaire(p.id) " ><i class="glyphicon glyphicon-comment" >{{p.commentaire.length}}</i></a>
+           <a ng-click="afficheraime(p.id)" data-toggle="modal" data-target="#myAime"><i class="glyphicon glyphicon-heart-empty">{{p.aime.length}}</i></a> 
+            
+   </div>
+         
+   
+   
+   
+   
+   
+   
+
+<div class="well well-small comment-container" id="comment_humhubmodulespostmodelsPost">
+<div id="comment_create_form_humhubmodulespostmodelsPost" class="comment_create" ng-show="comment">
+		
+		    <form >
+				     <input name="_csrf" value="dVlUbGl6OWkDOD0CWztdXkcGAzkzI34fAR1hDQJMAQwgKB4EMxRIHg==" type="hidden">    
+				     <input  type='hidden'ng-model="p.id"  />
+				    <textarea  ng-model="text"  ng-change="change(text)" id="newCommentForm_humhubmodulespostmodelsPost_1" class="form-control autosize commentForm" name="message" rows="1" placeholder="Écrire un nouveau commentaire..." style="overflow: hidden; word-wrap: break-word; resize: none; height: 36px;">
+				    </textarea>
+
+				    <div class="comment-buttons">	
+					    <button type="submit" ng-click="saveCommentaire(p.id)" id="comment_create_post_humhubmodulespostmodelsPost" class="btn btn-sm btn-default btn-comment-submit pull-left">
+					       Commenter
+					    </button>
+				    </div>
+		    </form>
+</div>
+	    <div class="comment " id="comments_area_humhubmodulespostmodelsPost">
+	    
+				<div class="media" id="comment" ng-repeat="c in publicationC">
+				 
+			        <ul style="display: none;" class="nav nav-pills preferences">
+			            <li class="dropdown ">
+			                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			                <i class="fa fa-angle-down"></i></a>			
+			                <ul class="dropdown-menu pull-right">
+			                     <li>
+			     <!-- Link to call the confirm modal -->
+			    <!-- create normal link element -->
+			    <a id="deleteLinkPost_modal_commentdelete" class=" " style="" href="#" data-toggle="modal" data-target="#confirmModal_modal_commentdelete">
+			           <i class="fa fa-trash-o"></i> Effacer </a>
+			       </li>
+			    </ul>
+			 </li>
+			</ul>
+			
+			    <a href="u/{{p.user.username}}" class="pull-left">
+			        <img   ng-src="{{c.user.photo}}" class="media-object img-rounded "  style="width: 40px; height: 40px;">
+			        <!--  <img class="media-object img-rounded user-image user-1f7d067d-92b8-4c31-92a5-32b0f784929c" ng-src="{{c.user.photo}}" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" height="40" width="40"> -->
+			    </a>
+			    <div class="media-body">
+			        <h4 class="media-heading"><a href="#">{{c.user.nom}} {{c.user.prenom}}</a>  
+			            <small>
+			                <span class="time" title="28 avr. 2016 - 17:57">{{c.dateCommentaire}}</span>                           
+			             </small>
+			        </h4>
+			        <div class="content" id="comment_editarea">
+			            <span id="comment-message">{{c.text}}</span>      
+			        </div>
+			    </div>
+			    <hr>
+			  </div>
+	    
+	    </div>
+    
+ 
+		
+ </div>
+ 
+          </div>
+         </div>
+        
+<!-- model suppression de publication -->
+<div class="modal" id="confirmModal_modal_postdelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-extra-small animated pulse">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel"><strong>Confirmer</strong> la suppression de la publication</h4>
+            </div>
+            <div class="modal-body text-center">
+                Souhaitez-vous vraiment supprimer cette publication ? Tous les "j'aime" et les commentaires seront définitivement perdus ! </div>
+            <div class="modal-footer">
+                    <button id="h303855w1" class="btn btn-primary" return="true" data-dismiss="modal">Supprimer</button>                                                   
+                     <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+             </div>
+        </div>
+    </div>
+</div>
+<!-- end model suppression de publication -->
+ <!-- model suppression de commentaire -->
+<div class="modal" id="confirmModal_modal_commentdelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-extra-small animated pulse">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel"><strong>Confirmation</strong> 
+                             de la suppression du commentaire</h4>
+            </div>
+            <div class="modal-body text-center">
+                Souhaitez-vous vraiment supprimer ce commentaire ?</div>
+            <div class="modal-footer">
+                    <button id="h303855w2" class="btn btn-primary" return="true" data-dismiss="modal">Effacer</button>                                                   
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myAime" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Aime</h4>
+      </div>
+      <div class="modal-body">
+      
+      
+      <div class="wall-entry" id="wallEntry" ng-repeat="aime in publicationA" >
+       <img   ng-src="{{aime.user.photo}}" class="media-object img-rounded "  style="width: 40px; height: 40px; display:inline-block">
+      
+        {{aime.user.nom}}{{aime.user.prenom}}
+      <hr>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- end model suppression de commentaire --> 
+  </div>
+</div>
+ 
+</div>
+
+</div>
+
+		<!-- show "Load More" button on mobile devices -->
+		<div class="col-md-12 text-center visible-xs visible-sm">
+		    <button id="btn-load-more" class="btn btn-primary btn-lg ">Load more</button>
+		    <br><br>
+		</div>
+		
+		
+</div>
+
+
+</div>
+
+ <!-- end: show content -->
+ 
+</div> 
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="gestiongroupe" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Creation Groupe</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text"   ng-model="groupes.nomGroupe"  class="form-control autosize contentForm"  placeholder="Enter le nom de groupe" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  ng-click="envoyer()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myformation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="gestionformation">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Formation</h4>
+      </div>
+      <div class="modal-body">
+        
+<div class="wall-entry" id="wallEntry" ng-repeat="formation in  findFormations" >
+
+<div class="panel panel-default wall_humhubmodulespostmodelsPost">
+    <div class="panel-body">
+        <div class="media">
+            <!-- start: show wall entry options -->
+            <ul class="nav nav-pills preferences">
+                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#pub">
+                      <i class="fa fa-angle-down"></i>
+                    </a>
+                    
+                </li>
+            </ul>
+            <!-- end: show wall entry options -->
+
+            <a href="u/{{g.user.username}}" class="pull-left">
+                <img class="media-object img-rounded user-image user-7417e6d0-8b7f-4e21-8a96-363eb5b1ad37" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;" src="image/1.jpg" height="40" width="40" ng-src="{{g.user.photo}}">
+            </a>
+            <div class="media-body">
+
+                <!-- show username with link and creation time-->
+                <h4 class="media-heading"><a href="/u/{{g.user.username}">{{formation.recruteur.nom}} {{formation.recruteur.prenom}}</a>
+                    <small>
+                        <span class="time" title="28 avr. 2016 - 17:56">{{formation.date| date : format : timezone }}</span>                       
+                        <!-- show space name -->                                              
+                        
+                    </small>
+                </h4>
+               
+           </div>
+           <hr>
+            <div class="content" >
+                                
+                  <span id="post-content" style="overflow: hidden; margin-bottom: 5px;">
+                      {{formation.description}}  
+                   </span>
+                   <hr> 
+                   Prix: {{formation.prix}}
+                   <hr>
+                    <span id="post-content" style="overflow: hidden; margin-bottom: 5px;">
+                    {{formation.lieu}}
+                    {{formation.pays}} -{{formation.ville}}
+                   </span>
+               
+            </div>
+           <hr>
+          </div>
+         </div>
+
+
+  </div>
+</div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+

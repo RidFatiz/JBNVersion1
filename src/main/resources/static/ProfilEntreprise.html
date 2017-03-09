@@ -1,0 +1,83 @@
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+<link  rel="stylesheet" type="text/css"  href="css/style.css"   />
+
+
+
+</head>
+
+<div ng-app="Inscription">
+    
+    <div  ng-controller="home as home">
+      <div >   
+         
+              
+           
+             
+      <form >            
+          
+          <div class="form-group" >
+            <label  >Entreprise</label>
+            <div >
+                <input  type="text" class="form-control" required name="nom_entreprise" ng-model="home.user.nom_entreprise" />
+            </div>
+        </div>
+        <div class="form-group" >
+            <label  >Fonction entrprise</label>
+            <div>
+                <input  type="text" class="form-control" required name="fonction " ng-model="home.user.fonction" />
+            </div>
+        </div>
+        <div class="form-group">
+<label>Secteur:</label>
+ <select    ng-options="x for x in secteur" ng-model="home.user.secteur" class="form-control">
+</select>
+</div>
+        
+        
+      
+      <div class="form-group" >
+            <label>Site Entreprise</label>
+            <div >
+                <input  type="text" class="form-control"  ng-model="home.user.site_entreprise" />
+            </div>
+        </div>
+        <div class="form-group" >
+            <label  >Numero télephone </label>
+            <div >
+                <input  type="text" class="form-control"  ng-model="home.user.numero_telephone " />
+            </div>
+        </div>
+      
+     
+     
+      
+         <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9 right"> 
+                <input type="submit" class="btn btn-info"  value="suivant" ng-click="saveRecruteur()" ng-controller="gererinscription"/>
+                <input type="reset" class="btn btn-default"/>
+            </div>
+        </div>
+    </form> 
+    </div>
+   
+       
+ 
+    </div>
+  
+      </div>  
+      
+      
+
+
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="js/inscrit.js"></script>
+

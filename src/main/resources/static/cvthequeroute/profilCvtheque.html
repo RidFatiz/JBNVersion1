@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link  rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+
+<link  rel="stylesheet" type="text/css"  href="../css/style.css"   />
+</head>
+<body   >
+
+<div id="body">
+
+
+<blockquote><spam style="font-style:italic;">Title
+</spam></blockquote>
+{{Candidat.titreCv}}
+<div> 
+
+<blockquote >Formations</blockquote>
+
+<ul>
+
+<li ng-repeat="c in Candidat.diplome"  >
+<h5  class="dateColor"> {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span style="margin-left:20px">{{c.titreDiplome }} à {{c.etablissement}}</span>
+
+{{c.descriptiondiplome}}
+
+</li>
+
+</ul>
+
+
+</div>
+
+<div>
+<blockquote>Expériences professionnelles</blockquote>
+
+
+<ul >
+<li ng-repeat="c in Candidat.experience"  >
+<h5 class="dateColor" > {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span >{{c.type}} en {{ c.poste}} à {{c.lieu}}</span><br>
+
+<span>{{c.description_experience}}</span>
+</li>
+
+</ul>
+
+</div>
+<div>
+<blockquote>Langues</blockquote>
+<ul>
+
+<li ng-repeat="c in Candidat.langue"  >
+
+ <span style="font-weight: 600;">{{c.langue }}</span> {{c.niveau}}
+
+
+</li>
+</ul>
+</div>
+<div>
+<blockquote>Compétences </blockquote>
+<ul>
+<li ng-repeat="c in Candidat.competence"  >
+<span style="font-weight: 600;">{{c.typeCompetence}}:</span>
+ {{c.description_Competence}}
+</li>
+
+</ul> 
+
+</div>
+<div>
+<blockquote>Centres d’intérêt</blockquote>
+<ul>
+<li ng-repeat="c in Candidat.loisir"  >
+<span style="font-weight: 600;">{{c.typeLoisir}}:</span>
+ {{c.description}} 
+
+
+
+</li>
+
+</ul>
+
+</div>
+</div>
+
+
+
+<script type="text/javascript"  src="../angular/angular.min.js"></script>
+<script type="text/javascript"  src="../angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="../angular/angularjs.min.js"></script>
+<script type="text/javascript"  src="../angular/angulars.route.js"></script>
+<script type="text/javascript"  src="../js/cvtheque.js"></script>
+
+</body>
+</html>

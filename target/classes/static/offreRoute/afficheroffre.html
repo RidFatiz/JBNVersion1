@@ -1,0 +1,198 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+
+        
+        <title>JobNetwork</title>
+        <!-- end: Meta -->
+
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <!-- end: Mobile Specific -->
+        <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="M1picHNqVWt5NAEvHFJnAH1tLic6XTtfVT02MxAGOgoBOzI1LAI.Lg=="/>
+<link href="../css/jquery-ui.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link  rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link  rel="stylesheet" type="text/css" href="../font-awesome-4.6.3/css/font-awesome.css"/>
+<link  rel="stylesheet" type="text/css" href="../css/typicons.min.css"/>
+<link  rel="stylesheet" type="text/css" href="../css/typicons.css"/>
+<link  rel="stylesheet" type="text/css" href="../css/customize.css"/>
+<link href="../css/animate.min.css" rel="stylesheet">
+<link href="../css/temp.css" rel="stylesheet">
+<link href="../css/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="../css/flatelements.css" rel="stylesheet">
+<link href="../css/jquery.atwho.css" rel="stylesheet">
+<link href="../css/mail.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+
+        <!-- start: render additional head (css and js files) -->
+        <link href="../css/theme.css" rel="stylesheet">
+        <link href="../css/open-sans.css" rel="stylesheet">
+        <!-- end: render additional head -->
+
+
+        <!-- start: Favicon and Touch Icons -->
+        
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="image/1.jpg">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- end: Favicon and Touch Icons -->
+
+
+
+
+<style type="text/css">
+
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+
+</style>
+    </head>
+
+    <body>
+ <!-- start: first top navigation bar -->
+     <div id="topbar-first" class="topbar">
+        <div class="container">
+            <div class="topbar-brand hidden-xs">
+                <a class="navbar-brand"  href="#" id="text-logo">
+                   JobNetwork    
+                </a>
+            </div>
+   
+   <div class="notifications pull-right">
+			   <div class="btn-group">
+			                 <a href="/login" id="icon-notifications" >
+			                     Se connecter
+			                     <i class="glyphicon glyphicon-log-in"></i>
+			                   			                     
+			                  </a>
+			
+			    </div>
+			    <div class="btn-group">
+			                 <a href="/inscription.html" id="icon-notifications" >
+			                     <i class="glyphicon glyphicon-edit"></i>
+			                      S'inscrire
+			                  </a>
+			                 
+			                    
+			    </div>
+			
+  </div>
+</div>
+
+    </div>
+    
+<div class="container col-lg-12">
+                  
+                     <div class="panel-group"><strong> Rechercher </strong>une annonce</div>
+                            
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <input class="form-control" placeholder="Ville?"  type="text" ng-model="ville">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input id="list" type="text"  placeholder="Secteur?" class="form-control ng-pristine ng-valid ng-touched"  ng-model="secteur">
+                                                    
+                                            </div>
+                                            <div class="col-sm-3">
+                                               <input id="list" type="text" placeholder="Poste?" class="form-control ng-pristine ng-valid ng-touched"  ng-model="poste" >
+
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <button class="btn btn-info" type="submit" ng-click="findOffre()">
+                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                            
+                                    </form>
+ </div>
+
+<div class="container col-lg-12">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-comment"></span>
+                <h3 class="panel-title">
+                    Dernière Offres</h3>
+                <span class="label label-info">
+                    78</span>
+            </div>
+            <div ng-repeat="of in offre.offres track by $index "> 
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <a  href="#/offre/{{of.id_Offre}}">
+                                      {{of.poste}} </a>
+                                      
+                                    <div class="mic-info">
+                                     By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013 {{of.dateDebut}}
+                                    </div>
+                                </div>
+                                <div class="comment-text">
+                                   {{of.ville}} {{of.nom_entreprise}} 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </li>
+                    
+                    
+                </ul>
+               <hr>
+            </div>
+        </div>
+        
+        
+
+        
+        
+        
+    </div>
+</div>
+
+</div>
+<div class="page-nation">
+<ul class="pagination pagination-large">
+
+ <li class="disabled"><span>«</span></li>
+<li  class="clickable" ng-class="{active:$index==pageCourant}"  ng-repeat="p in pages track by $index"><a ng-click="goTopage($index)">{{$index}}</a>
+
+
+</li>
+
+<li class="disabled"><span>...</span></li><li>
+ <li><a rel="next" href="#">Next</a></li>
+</ul>
+</div>
+        
+
+<script type="text/javascript"  src="../angular/angular.min.js"></script>
+<script type="text/javascript"  src="../angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="../angular/angularjs.min.js"></script>
+<script type="text/javascript"  src="../angular/angulars.route.js"></script>
+<script type="text/javascript"  src="../js/OffreavecRoute.js"></script>
+
+
+</body>
+</html>

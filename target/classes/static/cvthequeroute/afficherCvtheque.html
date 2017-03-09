@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body ng-app="JobnetWork"  >
+
+<div ng-repeat="candidat in Candidat  track by $index">
+
+ <a  href="#/candidatt/{{candidat.username}}"  >profil n°{{$index}}</a>
+
+
+
+</div>
+
+
+<script type="text/javascript"  src="../angular/angular.min.js"></script>
+<script type="text/javascript"  src="../angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="../angular/angularjs.min.js"></script>
+<script type="text/javascript"  src="../angular/angulars.route.js"></script>
+<script type="text/javascript"  src="../js/cvtheque.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+<head>
+<meta charset="UTF-8">
+<link  rel="stylesheet" type="text/css"  href="css/style.css"   />
+</head>
+
+<div class="panel panel-default" ng-app="application"  ng-controller="gestiondeoffre" >
+                
+        <div class="panel-heading">
+                     <strong>Publier</strong> une offre</div><hr>
+        <div class="panel-body">
+           <form>
+
+
+			 <div ng-controller="home as home" >                 
+					<div class="form-group">
+							<label>Entrprise:</label>
+							<input type="text" ng-model="home.user.nom_entreprise" class="form-control" />
+					</div>
+				</div>
+				
+				
+				
+				<div class="form-group">
+				        <label>Poste:</label>
+				        <input type="text" ng-model="offre.poste" class="form-control" />
+				</div>
+				
+				<div class="form-group">
+				        <label>Secteur:</label>
+				        <select    ng-options="x for x in secteur" ng-model="offre.secteur" class="form-control">
+				        </select>
+				</div>
+				
+				<div class="form-group">
+				        <label>Description du poste:</label>
+				        <textarea ng-model="offre.description" class="form-control" ></textarea>
+				</div>
+				
+				<div class="form-group">
+				        <label>Compétences et domaines d’expertise souhaités:</label>
+				        <textarea  ng-model="offre.ProfilSouhaite"  class="form-control" ></textarea>
+				</div>
+				<div class="form-group">
+				        <label>Type d’emploi:</label>
+				        <select ng-options="x for x in typecontrant" ng-model="offre.typecontrant" class="form-control">
+				        </select>
+				</div>
+				
+				<div class="form-group">
+						<label>Type Offre:</label>
+						      <input type="radio" ng-model="offre.type" value="Stage"  />Stage
+						      <input type="radio" ng-model="offre.type" value="Emploi"  />Emploi
+						      
+						      <div ng-if="offre.type=='Stage'"  >
+						         <label>Rémuneration:</label>
+						         <input type="text" ng-model="offre.remuneration"  class="form-control"/>
+						      </div>
+				</div>
+				<div class="form-group">
+				      <label>lieu  :</label>
+				      <input type="text" ng-model="offre.lieu"  class="form-control"/>
+				</div>
+				<div class="form-group">
+				     <label>Ville:</label>
+				     <textarea ng-model="offre.ville"  class="form-control" rows="1"></textarea>
+				</div>
+				
+				<div class="form-group" ng-if="offre.type=='Stage'" >
+				    <label>date Debut:</label>
+				    <input type="date" ng-model="offre.dateDebut" class="form-control" />
+				</div>
+				
+				<div class="form-group" ng-if="offre.type=='Stage'" >
+				   <label>date Fin:</label>
+				   <input type="date" ng-model="offre.dateFin" class="form-control" />
+				</div>
+				
+				<button ng-click="saveOffre()"  class="btn btn-info">Save</button> 
+				<input type="reset" class="btn btn-default"/>
+
+          </form>
+      </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="js/angular-route.js"></script>
+<script type="text/javascript"  src="js/app.js"></script>
+
+

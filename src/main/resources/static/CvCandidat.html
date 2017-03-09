@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+<link  rel="stylesheet" type="text/css"  href="css/style.css"   />
+
+<script type="text/javascript">
+
+function generetePDF(){
+var doc = new jsPDF();
+
+
+doc.fromHTML($("#body").get(0), 10 ,10,{
+	'width':300
+});
+doc.save('test.pdf');
+
+
+
+
+
+}
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+<body ng-app="JobnetWork"  ng-controller="home as home" class="body" >
+
+<div id="body">
+<div>
+<span style="font-weight: bold">{{home.user.nom}} {{home.user.prenom}}</span></br>
+{{home.user.status}}</br>
+{{home.user.email}}</br>
+{{dateFormat-date }} ans <br>
+
+
+{{home.user.tel}}</br>
+{{home.user.adresse}}</br>
+
+
+</div>
+<blockquote><spam style="font-style:italic;">Title
+</spam></blockquote>
+<div> 
+
+<blockquote >Formations</blockquote>
+
+<ul>
+
+<li ng-repeat="c in home.diplome"  >
+<h5  class="dateColor"> {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span style="margin-left:20px">{{ c.niveauEtude}}{{c.titreDiplome }} à {{c.etablissement}}</span>
+
+{{c.descriptiondiplome}}
+
+</li>
+
+</ul>
+
+
+</div>
+
+<div>
+<blockquote>Expériences professionnelles</blockquote>
+
+
+<ul >
+<li ng-repeat="c in home.experience"  >
+<h5 class="dateColor" > {{c.dateDebut | date:'yyyy'}}-{{c.dateFin | date:'yyyy'}} </h5>
+ <span >{{ c.poste}} de {{c.type}} à {{c.lieu}}</span><br>
+
+<span>{{c.description_experience}}</span>
+</li>
+
+</ul>
+
+</div>
+<div>
+<blockquote>Langues</blockquote>
+<ul>
+
+<li ng-repeat="c in home.langue"  >
+
+ <span style="font-weight: 600;">{{c.langue }}</span> {{c.niveau}}
+
+
+</li>
+</ul>
+</div>
+<div>
+<blockquote>Compétences </blockquote>
+<ul>
+<li ng-repeat="c in home.competence"  >
+<span style="font-weight: 600;">{{c.typeCompetence}}</span>
+ {{c.description_Competence}}
+
+
+
+</li>
+
+</ul> 
+
+</div>
+<div>
+<blockquote>Centres d’intérêt</blockquote>
+<ul>
+<li ng-repeat="c in home.loisir"  >
+<span style="font-weight: 600;">{{c.typeLoisir}}</span>
+ {{c.description_Loisir}} 
+
+
+
+</li>
+
+</ul>
+
+</div>
+</div>
+
+<a href="javascript:generetePDF()" ><img src="//FreeHTMLtoPDF.com/images/apiicon_32.png" ng-click="save()" /></a>
+
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+<script type="text/javascript"  src="angular/angular-sanitize.min.js"></script>
+<script type="text/javascript"  src="js/cv.js"></script>
+
+<script type="text/javascript"  src="angular/angular.min.js"></script>
+
+<script type="text/javascript"  src="angular/angularjs.min.js"></script>
+<script type="text/javascript"  src="angular/angulars.route.js"></script>
+<script type="text/javascript"  src="angular/jspdf.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
