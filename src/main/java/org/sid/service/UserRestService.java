@@ -62,21 +62,21 @@ public class UserRestService {
 	
 	@RequestMapping(value="/user",method=RequestMethod.POST)
 	public Object saveUser(@RequestBody @Valid User u, BindingResult bindingResult) throws Exception {
-		if(bindingResult.hasErrors()){
-			Map<String, Object> errors=new HashMap<>();
-			errors.put("errors", true);
-			for(FieldError fe: bindingResult.getFieldErrors()){
-				errors.put(fe.getField(), fe.getDefaultMessage());
-				return  errors;
-			}
-		 }
-			String body = "<h1>bonjour, veuillez confirmer votre inscription à JobNetwork</h1><br/>"
-				       +"vos informations<br/>votre nom :"+u.getUsername()+"<br/>mot de passe :"+u.getPassword()
-				   //request.scheme://${request.serverName}:${request.serverPort}${request.contextPath}
-				       + "<br/><form method='POST' action='http://127.0.0.1:8080/activerUser'><input type='submit' value='confirmer'/></form>";
-			u.setPassword(passwordEncoder.encode(u.getPassword()));
+		//if(bindingResult.hasErrors()){
+			//Map<String, Object> errors=new HashMap<>();
+			//errors.put("errors", true);
+			//for(FieldError fe: bindingResult.getFieldErrors()){
+			//	errors.put(fe.getField(), fe.getDefaultMessage());
+			//	return  errors;
+			//}
+		 //}
+		//	String body = "<h1>bonjour, veuillez confirmer votre inscription à JobNetwork</h1><br/>"
+		//		       +"vos informations<br/>votre nom :"+u.getUsername()+"<br/>mot de passe :"+u.getPassword()
+		//		   //request.scheme://${request.serverName}:${request.serverPort}${request.contextPath}
+		//		       + "<br/><form method='POST' action='http://127.0.0.1:8080/activerUser'><input type='submit' value='confirmer'/></form>";
+		//	u.setPassword(passwordEncoder.encode(u.getPassword()));
 
-			simpleMessage.send(u.getEmail(), "Mail de confirmation",body );
+		//	simpleMessage.send(u.getEmail(), "Mail de confirmation",body );
     		return userMetier.saveUser(u);
 		
 	}
